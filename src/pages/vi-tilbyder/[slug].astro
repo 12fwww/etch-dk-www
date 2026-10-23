@@ -1,0 +1,65 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import { breadcrumb, base } from '../../data/site';
+import { productPages } from '../../data/products';
+import type { ProductPage } from '../../data/products';
+
+export function getStaticPaths() {
+  return productPages.map((p) => ({ params: { slug: p.slug }, props: { page: p } }));
+}
+
+interface Props { page: ProductPage }
+const { page } = Astro.props;
+---
+<Layout
+  title={page.h1 + " – faconætsning | Etch"}
+  description={page.lead.slice(0, 155) + "…"}
+  path={"/vi-tilbyder/" + page.slug + "/"}
+  image={page.image}
+  jsonld={[breadcrumb([
+    { name: 'Forside', path: '/' },
+    { name: 'Vi tilbyder', path: '/vi-tilbyder/' },
+    { name: page.h1, path: '/vi-tilbyder/' + page.slug + '/' },
+  ])]}
+>
+  <section class="section wrap pagehead">
+    <div class="prod-hero" data-reveal>
+      <div class="txt">
+        <h1>{page.h1}</h1>
+        <p class="lead" style="margin-top:1rem">{page.lead}</p>
+      </div>
+      <div class="ph">
+        <Picture src={page.image} alt={page.h1 + " – ætset emne"} widths={[480, 960, 1500]} formats={['avif','webp']} sizes="(min-width:56rem) 50vw, 90vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    {page.bullets && (
+      <ul class="dotlist" style="margin-top:0.4rem">
+        {page.bullets.map((b, i) => <li data-rise style="--i:" + i + ">{" + b + "}</li>)}
+      </ul>
+    )}
+    <div style="margin-top:1.6rem; display:grid; gap:1rem">
+      {page.body.map((p, i) => (
+        <p data-rise style="--i:" + i + ">{" + p + "}</p>
+      ))}
+    </div>
+    {page.second && (
+      <figure class="figure" style="margin-top:2rem; max-width:640px" data-reveal>
+        <Picture src={page.second} alt={page.h1 + " – detalje"} widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 50vw, 92vw" aspectRatio="4/3" />
+      </figure>
+    )}
+  </section>
+
+  <section class="section" style="background:var(--field-red); color:var(--accent-ink)">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:48ch">
+        <h2 style="color:#fff; font-size:var(--step-head)">Få en uforpligtende snak</h2>
+        <p style="color:var(--accent-ink); margin-top:.6rem">Kontakt os på tlf. 27 11 65 59 og hør, hvilke løsninger vi kan tilbyde.</p>
+      </div>
+      <a class="button big" style="background:#fff; color:var(--ink)" href={base + '/kontakt/'}>Kontakt os</a>
+    </div>
+  </section>
+</Layout>

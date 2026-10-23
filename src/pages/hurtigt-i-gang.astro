@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { breadcrumb, base, company } from '../data/site';
+import production from '../assets/original/production.jpg';
+---
+<Layout
+  title="Hurtigt i gang med Etch | pris og leveringstid"
+  description="Ring eller e-mail for pris og leveringstid. Vi hjælper med design, efterbearbejdning, smart montage og masselæring. Ring i god tid til hurtig levering."
+  path="/hurtigt-i-gang/"
+  image={production}
+  jsonld={[breadcrumb([
+    { name: 'Forside', path: '/' },
+    { name: 'Hurtigt i gang', path: '/hurtigt-i-gang/' },
+  ])]}
+>
+  <section class="section wrap pagehead">
+    <h1 data-rise style="--i:0">Hurtigt i gang hos Etch</h1>
+    <p class="lead" data-rise style="--i:1; margin-top:1rem">
+      Ring eller e-mail for pris og leveringstid. Vi lagerfører en del tyndplademetal. Ring
+      gerne i god tid, så vi kan få materialer hjem på lager og dermed sikre hurtig levering.
+    </p>
+    <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem" data-rise style="--i:2">
+      <a class="button big" href={company.phoneHref}>Ring til os</a>
+      <a class="button big ghost" href={company.emailHref}>Send en e-mail</a>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <h2 data-rise style="--i:0">Sådan hjælper vi</h2>
+    <div style="margin-top:1.4rem; display:grid; gap:1.1rem; max-width:70ch">
+      <p data-rise style="--i:0">
+        <strong>Design:</strong> Vi hjælper gerne med design – herunder mekanik, EMC-afskærmning
+        og overflader (kontakt og korrosionsbeskyttelse).
+      </p>
+      <p data-rise style="--i:1">
+        <strong>Efterbearbejdning:</strong> Skal emnet efterbearbejdes, f.eks. bukkes,
+        overfladebehandles eller silketrykkes, finder vi det optimale layout; dvs. bukning og
+        overfladebehandling af flere emner ad gangen på bjælke eller i ramme.
+      </p>
+      <p data-rise style="--i:2">
+        <strong>Montage:</strong> Skal emner monteres i større kvantiteter hos kunden (eller hos
+        os), leverer vi gerne emner ætset ud i fikstur til smart montage (eller programmerer vor
+        robot til formålet).
+      </p>
+      <p data-rise style="--i:3">
+        <strong>Styktal:</strong> Stiger styktallet ud over prototyper, skifter vi typisk fra
+        kantbuk til bukning i halv- eller hel-automatiske værktøjer og udkonkurrerer dermed
+        stansning indtil meget høje styktal.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:44ch">
+        <h2 style="font-size:var(--step-head)">Klar til at starte?</h2>
+        <p class="muted" style="margin-top:.6rem">Send os en CAD-fil eller en skitse, så finder vi den bedste løsning.</p>
+      </div>
+      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+    </div>
+  </section>
+</Layout>

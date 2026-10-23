@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import { Picture } from 'astro:assets';
+import logo from '../assets/original/logo.jpg';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: import('astro').ImageMetadata;
+  jsonld?: object[];
+}
+const { title, description, path, image, jsonld = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const nav = [
+  { href: base + '/faconaetsning/', label: 'Faconætsning' },
+  { href: base + '/oekonomiske-fordele/', label: 'Økonomi' },
+  { href: base + '/vi-tilbyder/', label: 'Vi tilbyder' },
+  { href: base + '/hurtigt-i-gang/', label: 'Hurtigt i gang' },
+  { href: base + '/om-etch/', label: 'Om Etch' },
+  { href: base + '/kontakt/', label: 'Kontakt' },
+];
+
+const production = (import.meta.env.PUBLIC_PRODUCTION_URL || Astro.site?.origin || '').replace(/\/$/, '');
+const preview = import.meta.env.PUBLIC_PREVIEW !== '0';
+const canonical = production + path;
+---
+<!doctype html>
+<html lang="da-DK" class="js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {preview && <meta name="robots" content="noindex, follow" />}
+  <link rel="icon" type="image/png" href={base + '/favicon.png'} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content="da_DK" />
+  <meta property="og:site_name" content="Etch A/S" />
+  <meta name="twitter:card" content="summary" />
+  {jsonld.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
+</head>
+<body>
+<a class="sr-only" href="#main">Spring til indhold</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href={base + '/'} aria-label="Etch forside">
+      <Picture src={logo} alt="Etch logo" widths={[160, 240]} format={['avif','webp']} />
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      <a class="cta" href={base + '/kontakt/'}>Kontakt os</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <slot />
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div style="grid-column: span 12; display:flex; flex-direction:column; gap:1.2rem;">
+        <a class="brand" href={base + '/'} aria-label="Etch forside">
+          <Picture src={logo} alt="Etch logo" widths={[160, 240]} format={['avif','webp']} />
+        </a>
+        <p class="blurb">Etch A/S leverer industrielle løsninger i metallisk tyndplade i seriestørrelser fra prototyper og 0-serier til produktionskvantiteter. Basisprocessen er faconætsning.</p>
+      </div>
+      <div class="col" style="grid-column: span 6;">
+        <h4>Produkter</h4>
+        <a href={base + '/vi-tilbyder/bladfjedre/'}>Bladfjedre</a>
+        <a href={base + '/vi-tilbyder/shims-og-spacere/'}>Shims og spacere</a>
+        <a href={base + '/vi-tilbyder/emc-skaermdaaser/'}>EMC skærmdåser</a>
+        <a href={base + '/vi-tilbyder/emc-pakninger/'}>EMC pakninger</a>
+        <a href={base + '/vi-tilbyder/dekorative-emner/'}>Dekorative emner</a>
+      </div>
+      <div class="col" style="grid-column: span 3;">
+        <h4>Firma</h4>
+        <a href={base + '/faconaetsning/'}>Faconætsning</a>
+        <a href={base + '/oekonomiske-fordele/'}>Økonomiske fordele</a>
+        <a href={base + '/hurtigt-i-gang/'}>Hurtigt i gang</a>
+        <a href={base + '/om-etch/'}>Om Etch</a>
+      </div>
+      <div class="col" style="grid-column: span 3;">
+        <h4>Kontakt</h4>
+        <a href="tel:+4527116559">+45 27 11 65 59</a>
+        <a href="mailto:info@etch.dk">info@etch.dk</a>
+        <span>Bygmarken 3, 3520 Farum</span>
+        <span>Åben 08.00–16.00</span>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© {new Date().getFullYear()} Etch A/S · CVR-firma i Farum</span>
+      <span>
+        <a href={base + '/cookies/'}>Cookiespolitik</a> ·
+        <a href={base + '/wp-content/uploads/2022/11/Etch-salgs-og-leveringsbetingelser-2022.pdf'}>Salgs- og leveringsbetingelser</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script>
+  document.documentElement.classList.add('js');
+  const t = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  if (t && nav) {
+    t.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      t.setAttribute('aria-expanded', String(open));
+    });
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

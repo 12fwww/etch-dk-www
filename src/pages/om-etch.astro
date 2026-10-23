@@ -1,0 +1,90 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { breadcrumb, base } from '../data/site';
+import precision from '../assets/original/precision.jpg';
+import volume from '../assets/original/volume.jpg';
+
+const og = precision;
+---
+<Layout
+  title="Om Etch – over 20 års erfaring i tyndplade | Etch"
+  description="Etch A/S blev etableret i 2007 i Farum og indgår i et produktionsfællesskab med Sur-Tech. Over 20 års erfaring i udvikling og produktion af emner i metallisk tyndplade."
+  path="/om-etch/"
+  image={og}
+  jsonld={[breadcrumb([
+    { name: 'Forside', path: '/' },
+    { name: 'Om Etch', path: '/om-etch/' },
+  ])]}
+>
+  <section class="section wrap pagehead">
+    <h1 data-rise style="--i:0">Om Etch</h1>
+    <p class="lead" data-rise style="--i:1; margin-top:1rem">
+      Etch A/S blev etableret den 2. april 2007 i nye produktionslokaler hos vores medejer
+      Sur-Tech A/S i Farum.
+    </p>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <div class="split" data-reveal>
+      <div style="display:grid; gap:1rem">
+        <p data-rise style="--i:0">
+          Vi indgår i et produktionsfællesskab med Sur-Tech, og kan herigennem udnytte vores
+          fælles faciliteter og fleksible medarbejderstab.
+        </p>
+        <p data-rise style="--i:1">
+          Vi leverer industrielle løsninger i metallisk tyndplade i seriestørrelser fra
+          prototyper og 0-serier til produktionskvantiteter.
+        </p>
+        <p data-rise style="--i:2">
+          Vores basisproces er faconætsning, men vi tilbyder ligeledes efterbearbejdning i form
+          af bukning, galvanisk og kemisk overfladebehandling, laserskæring, -gravering og
+          -svejsning m.m.
+        </p>
+        <p data-rise style="--i:3">
+          Vi har over 20 års erfaring i udvikling og produktion af emner i metallisk
+          tyndplade – fortinsvis til elektronikindustrien. Etch har fokus på produktion i høj
+          kvalitet og lægger stor vægt på kundeservice.
+        </p>
+      </div>
+      <figure class="figure">
+        <Picture
+          src={precision}
+          alt="Hånd holder et tyndt metalstykke i en digital mikrometer og måler tykkelsen"
+          widths={[480, 960, 1440, 2048]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 50vw, 100vw"
+          aspectRatio="4/3"
+        />
+        <figcaption class="cap">Præcision målt til mikrometer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="stats" data-reveal>
+      <div class="stat field-ink">
+        <div class="num" style="color:#fff">2007</div>
+        <div class="lbl">Etableret i Farum, sammen med Sur-Tech A/S</div>
+      </div>
+      <div class="stat field-red">
+        <div class="num">50&nbsp;µm–1&nbsp;mm</div>
+        <div class="lbl" style="color:var(--accent-ink)">Tykkelse af tyndplade, vi forarbejder</div>
+      </div>
+      <div class="stat field-grey">
+        <div class="num" style="color:#fff">20+</div>
+        <div class="lbl" style="color:#d9d6cf">Års erfaring – især til elektronikindustrien</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:44ch">
+        <h2 style="font-size:var(--step-head)">Hvem er vi</h2>
+        <p class="muted" style="margin-top:.6rem">Etch A/S i Farum – din partner i faconætsning af tyndplade.</p>
+      </div>
+      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+    </div>
+  </section>
+</Layout>

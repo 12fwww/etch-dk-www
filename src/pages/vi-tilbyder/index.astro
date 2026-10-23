@@ -1,0 +1,99 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import { products, breadcrumb, base } from '../../data/site';
+import volume from '../../assets/original/volume.jpg';
+
+const og = volume;
+const capabilities = [
+  'Metallisk tyndplade ætsning fra 50 µm til 1 mm',
+  'Små geometrier og tolerancer',
+  'Hjælp til konstruktion og design',
+  'Masseproduktion',
+  'Prototyper',
+  'Hurtig levering',
+  'Bukning i værktøjer tilpasset opgaven',
+  'Kantbuk automatisk',
+  'Partiel forgyldning',
+  'Partiel tykkelsesreduktion',
+  'Levering i SMD Tape & Reel',
+  'Levering i biscuit eller fikstur designet til smart montage',
+  'Robotmontage',
+];
+---
+<Layout
+  title="Vi tilbyder – faconætsning og efterbearbejdning | Etch"
+  description="Etch tilbyder ætsning af metallisk tyndplade fra 50 µm til 1 mm, bukning, forgyldning, levering i SMD Tape & Reel og robotmontage. Prototyper og masseproduktion – hurtig levering."
+  path="/vi-tilbyder/"
+  image={og}
+  jsonld={[breadcrumb([
+    { name: 'Forside', path: '/' },
+    { name: 'Vi tilbyder', path: '/vi-tilbyder/' },
+  ])]}
+>
+  <section class="section wrap pagehead">
+    <h1 data-rise style="--i:0">Vi tilbyder</h1>
+    <p class="lead" data-rise style="--i:1; margin-top:1rem">
+      Kort leveringstid – selv større antal. Det er teknisk muligt at levere ætsede emner
+      samme dag, som man modtager en CAD-fil af emnet. Designændringer i løbende produktion kan
+      udføres fra dag til dag.
+    </p>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <div class="split" data-reveal>
+      <figure class="figure">
+        <Picture
+          src={volume}
+          alt="Tæt opstillede identiske cirkulære metaldele med udskårne tænder"
+          widths={[480, 960, 1440, 2048]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 50vw, 100vw"
+          aspectRatio="16/9"
+        />
+        <figcaption class="cap">Op til flere tusinde emner på ét ark</figcaption>
+      </figure>
+      <div>
+        <h2 style="font-size:var(--step-head)">Hele ark ad gangen</h2>
+        <p class="lead" style="margin-top:1rem">
+          Processen genererer hele ark ad gangen. Afhængig af, hvor tæt emnerne kan pakkes og
+          antallet af ark, kan der hurtigt produceres anselige kvantiteter.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <h2 data-rise style="--i:0">Hvad der er muligt</h2>
+    <ul class="dotlist" style="margin-top:1.4rem">
+      {capabilities.map((c, i) => <li data-rise style="--i:" + (i % 4) + ">{" + c + "}</li>)}
+    </ul>
+  </section>
+
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap">
+      <h2 style="margin-bottom:1.6rem">Se alle produkter</h2>
+      <div class="catalogue">
+        {products.map((p, i) => (
+          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style="--i:" + (i % 3) + ">
+            <div class={"tile " + p.field}>
+              <Picture src={p.image} alt={p.name} widths={[360, 640]} formats={['avif','webp']} sizes="(min-width:48rem) 30vw, 50vw" />
+            </div>
+            <p class="name">{p.name}</p>
+            <p class="fact">{p.fact}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:46ch">
+        <h2 style="font-size:var(--step-head)">Få en uforpligtende snak</h2>
+        <p class="muted" style="margin-top:.6rem">Kontakt os på tlf. 27 11 65 59 og hør, hvilke løsninger vi kan tilbyde.</p>
+      </div>
+      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+    </div>
+  </section>
+</Layout>

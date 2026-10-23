@@ -1,0 +1,163 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { products, processSteps, orgJsonLd, company, base } from '../data/site';
+import precision from '../assets/original/precision.jpg';
+import production from '../assets/original/production.jpg';
+import volume from '../assets/original/volume.jpg';
+import gaskets from '../assets/original/gaskets-cans.jpg';
+
+const og = volume;
+---
+<Layout
+  title="Faconætsning af tyndplade metal | Etch"
+  description="Etch A/S ætser metallisk tyndplade fra 50 µm til 1 mm. EMC-afskærmning, bladfjedre, gaskets, shims og dekorative emner. Ofte det økonomiske alternativ til stansning og laserskæring."
+  path="/"
+  image={og}
+  jsonld={[orgJsonLd()]}
+>
+  <!-- HERO: split stage -->
+  <section class="hero">
+    <div class="hero-left wrap">
+      <div>
+        <h1 data-rise style="--i:0">Faconætsning</h1>
+        <p class="statement" data-rise style="--i:1; margin-top:1.1rem">
+          Etch ætser metallisk tyndplade i tykkelser fra 50&nbsp;µm til 1&nbsp;mm. Ofte det
+          økonomiske alternativ til stansning og laserskæring.
+        </p>
+      </div>
+      <div class="hero-actions" data-rise style="--i:2">
+        <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+        <a class="button big ghost" href={base + '/oekonomiske-fordele/'}>Se den økonomiske fordel</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <figure class="hero-tile" style="position:relative" data-drift>
+        <Picture
+          src={precision}
+          alt="Hånd holder et tyndt metalstykke ind i en digital mikrometer og måler dets tykkelse"
+          widths={[480, 960, 1440, 2048]}
+          formats={['avif','webp']}
+          sizes="(min-width: 56rem) 44vw, 78vw"
+          aspectRatio="4/3"
+        />
+        <figcaption class="cap">Præcision målt til mikrometer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="section wrap">
+    <div class="split" data-reveal>
+      <div>
+        <h2>Metallisk tyndpladebearbejdning</h2>
+        <p class="lead" style="margin-top:1rem">
+          Etch A/S leverer industrielle løsninger i metallisk tyndplade i seriestørrelser
+          fra prototyper og 0-serier til produktionskvantiteter.
+        </p>
+        <p style="margin-top:1rem" class="muted">
+          Vores mål er at yde en god service, assistere ved udvikling af komponenter og
+          levere hurtigt i den rigtige kvalitet.
+        </p>
+        <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.7rem;">
+          <a class="button" href={base + '/faconaetsning/'}>Læs om processen</a>
+          <a class="button ghost" href={base + '/vi-tilbyder/'}>Se, hvad vi tilbyder</a>
+        </div>
+      </div>
+      <ul class="dotlist">
+        <li data-rise style="--i:0">Design &amp; konstruktion</li>
+        <li data-rise style="--i:1">Lave start- og totalomkostninger</li>
+        <li data-rise style="--i:2">Direkte fra prototyper til masseproduktion</li>
+        <li data-rise style="--i:3">Kompleks geometri med høj præcision</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CATALOGUE -->
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap">
+      <h2 style="margin-bottom:.4rem">Hvad vi ætser</h2>
+      <p class="lead muted" style="margin-bottom:2rem">Hver type emne ætset i metallisk tyndplade – præsenteret som specimener, hver for sig.</p>
+      <div class="catalogue">
+        {products.map((p, i) => (
+          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style="--i:" + (i % 3) + ">
+            <div class={"tile " + p.field}>
+              <Picture src={p.image} alt={p.name} widths={[360, 640]} formats={['avif','webp']} sizes="(min-width:48rem) 30vw, 50vw" />
+            </div>
+            <p class="name">{p.name}</p>
+            <p class="fact">{p.fact}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS PREVIEW -->
+  <section class="section wrap">
+    <div class="split" data-reveal>
+      <div>
+        <h2>Sådan går processen</h2>
+        <p class="lead" style="margin-top:1rem">
+          Faconætsning er en fotosensitiv proces i syv trin: fra rent panel til færdigt ætset
+          emne, hvor materialet er fjernet i den ønskede dybde.
+        </p>
+        <p class="muted" style="margin-top:1rem">
+          Se processen trin for trin på siden om faconætsning.
+        </p>
+        <div style="margin-top:1.4rem"><a class="button" href={base + '/faconaetsning/'}>Se de syv trin</a></div>
+      </div>
+      <figure class="figure">
+        <Picture
+          src={production}
+          alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+          widths={[480, 960, 1440, 2048]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 50vw, 100vw"
+          aspectRatio="4/3"
+        />
+        <figcaption class="cap small">Ætseprocessen i gang</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section wrap">
+    <div class="stats" data-reveal>
+      <div class="stat field-red">
+        <div class="num">50&nbsp;µm–1&nbsp;mm</div>
+        <div class="lbl" style="color:var(--accent-ink)">Tykkelse af metallisk tyndplade, vi forarbejder</div>
+      </div>
+      <div class="stat field-ink">
+        <div class="num" style="color:#fff">24&nbsp;timer</div>
+        <div class="lbl">Fra tegning til leveret emne – fra 1 stk. til mange tusinde</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--field-red); color:var(--accent-ink)">
+    <div class="wrap split" data-reveal>
+      <div>
+        <h2 style="color:#fff; max-width:12ch">Få en snak om ætsning</h2>
+        <p style="color:var(--accent-ink); margin-top:1rem; max-width:46ch">
+          Ring eller send os en mail, så finder vi sammen den bedste løsning for netop dit emne
+          – og du får en uforpligtende snak om pris og leveringstid.
+        </p>
+        <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" style="background:#fff; color:var(--ink)" href={company.phoneHref}>Ring til os</a>
+          <a class="button big ghost" href={company.emailHref}>info@etch.dk</a>
+        </div>
+      </div>
+      <figure class="figure" style="max-width:26rem">
+        <Picture
+          src={gaskets}
+          alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
+          widths={[480]}
+          formats={['avif','webp']}
+          sizes="26rem"
+          aspectRatio="4/3"
+        />
+      </figure>
+    </div>
+  </section>
+</Layout>

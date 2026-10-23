@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { breadcrumb, company } from '../data/site';
+import production from '../assets/original/production.jpg';
+
+const og = production;
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Etch A/S',
+  telephone: company.phone,
+  email: company.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.street,
+    postalCode: '3520',
+    addressLocality: 'Farum',
+    addressCountry: 'DK',
+  },
+  openingHours: 'Mo-Fr 08:00-16:00',
+  url: 'https://etch.dk/kontakt/',
+};
+---
+<Layout
+  title="Kontakt Etch – Bygmarken 3, Farum"
+  description="Kontakt Etch A/S i Farum. Ring på +45 27 11 65 59 eller skriv til info@etch.dk. Vi er åbne 08.00–16.00 på Bygmarken 3, 3520 Farum."
+  path="/kontakt/"
+  image={og}
+  jsonld={[
+    breadcrumb([
+      { name: 'Forside', path: '/' },
+      { name: 'Kontakt', path: '/kontakt/' },
+    ]),
+    org,
+  ]}
+>
+  <section class="section wrap pagehead">
+    <h1 data-rise style="--i:0">Kontakt os</h1>
+    <p class="lead" data-rise style="--i:1; margin-top:1rem">
+      Vi sidder klar til at besvare dine spørgsmål om faconætsning, pris og leveringstid.
+    </p>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <div class="contact-grid" data-reveal>
+      <div class="contact-block" data-rise style="--i:0">
+        <div class="k">Ring til os</div>
+        <a class="v" href={company.phoneHref}>+45 27 11 65 59</a>
+        <p class="muted" style="margin-top:.4rem">Ring for yderligere information om vores produkter.</p>
+      </div>
+      <div class="contact-block" data-rise style="--i:1">
+        <div class="k">Skriv til os</div>
+        <a class="v" href={company.emailHref}>info@etch.dk</a>
+        <p class="muted" style="margin-top:.4rem">Send en CAD-fil eller en skitse – vi vender tilbage med et forslag.</p>
+      </div>
+      <div class="contact-block" data-rise style="--i:2">
+        <div class="k">Adresse</div>
+        <div class="v">{company.street}, {company.zip}</div>
+        <p class="muted" style="margin-top:.4rem">Åben {company.hours} (man–fre).</p>
+      </div>
+      <div class="contact-block" data-rise style="--i:3">
+        <div class="k">Andet telefon</div>
+        <a class="v" href="tel:+4544956566">{company.phone2}</a>
+        <p class="muted" style="margin-top:.4rem">Mobil: {company.phone} · Fast: {company.phone2}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:44ch">
+        <h2 style="font-size:var(--step-head)">Ring i god tid</h2>
+        <p class="muted" style="margin-top:.6rem">Så kan vi sikre lager og hurtig levering af netop dit materiale.</p>
+      </div>
+      <a class="button big" href={company.phoneHref}>Ring til os</a>
+    </div>
+  </section>
+</Layout>

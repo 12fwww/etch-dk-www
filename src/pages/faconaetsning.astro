@@ -1,0 +1,67 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { processSteps, breadcrumb, base } from '../data/site';
+import production from '../assets/original/production.jpg';
+import s1 from '../assets/original/step-1.png';
+import s2 from '../assets/original/step-2.png';
+import s3 from '../assets/original/step-3.png';
+import s4 from '../assets/original/step-4.png';
+import s5 from '../assets/original/step-5.png';
+import s6 from '../assets/original/step-6.png';
+import s7 from '../assets/original/step-7.png';
+
+const stepsImg = [s1, s2, s3, s4, s5, s6, s7];
+---
+<Layout
+  title="Faconætsning – processen trin for trin | Etch"
+  description="Sådan foregår faconætsning: syv trin fra renset panel til færdigt ætset emne i metallisk tyndplade. Se processen trin for trin hos Etch A/S i Farum."
+  path="/faconaetsning/"
+  image={production}
+  jsonld={[breadcrumb([
+    { name: 'Forside', path: '/' },
+    { name: 'Faconætsning', path: '/faconaetsning/' },
+  ])]}
+>
+  <section class="section wrap pagehead">
+    <h1 data-rise style="--i:0">Faconætsningsprocessen trin for trin</h1>
+    <p class="lead" data-rise style="--i:1; margin-top:1rem">
+      Faconætsningsteknikken beskrives lettest ved at se et stykke metallisk tyndplade i
+      snitbillede. Billederne viser en detalje på ca. 1&nbsp;mm × 3&nbsp;mm × 0,1&nbsp;mm.
+    </p>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <h2 data-rise style="--i:0">De syv trin</h2>
+    <p class="muted" style="margin-top:.6rem; margin-bottom:1.6rem">Fra rensning af panelet til det færdige emne:</p>
+    <ol class="steps">
+      {processSteps.map((s, i) => (
+        <li class="step" data-rise style="--i:" + i + ">
+          <span class="ph"><Picture src={stepsImg[i]} alt={"Faconætsning – trin " + s.n} widths={[200, 300]} format={['avif','webp']} /></span>
+          <span class="n">Trin {s.n}</span>
+          <span class="t">{s.t}</span>
+        </li>
+      ))}
+    </ol>
+    <figure class="figure" style="margin-top:2rem; max-width:44rem" data-reveal>
+      <Picture
+        src={production}
+        alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+        widths={[480, 960, 1440, 2048]}
+        formats={['avif','webp']}
+        sizes="(min-width:48rem) 44rem, 92vw"
+        aspectRatio="4/3"
+      />
+    </figure>
+  </section>
+
+  <section class="section" style="background:var(--surface)">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
+      <div style="max-width:44ch">
+        <h2 style="font-size:var(--step-head)">Har du et emne, der skal ætses?</h2>
+        <p class="muted" style="margin-top:.6rem">Ring eller send os en mail for pris og leveringstid.</p>
+      </div>
+      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+    </div>
+  </section>
+</Layout>
