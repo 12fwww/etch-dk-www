@@ -8,6 +8,7 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import { Picture } from 'astro:assets';
 import logo from '../assets/original/logo.jpg';
+import logoPng from '../assets/original/logo.png';
 
 interface Props {
   title: string;
@@ -73,7 +74,7 @@ const canonical = production + path;
     <div class="grid">
       <div style="grid-column: span 12; display:flex; flex-direction:column; gap:1.2rem;">
         <a class="brand" href={base + '/'} aria-label="Etch forside">
-          <Picture src={logo} alt="Etch logo" widths={[160, 240]} format={['avif','webp']} />
+          <Picture src={logoPng} alt="Etch logo" widths={[200, 300]} format={['avif','webp']} />
         </a>
         <p class="blurb">Etch A/S leverer industrielle løsninger i metallisk tyndplade i seriestørrelser fra prototyper og 0-serier til produktionskvantiteter. Basisprocessen er faconætsning.</p>
       </div>

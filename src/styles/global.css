@@ -189,7 +189,7 @@ p + p { margin-top: 0.9em; }
 .foot { background: var(--field-ink); color: #f3f1ec; margin-top: var(--section); }
 .foot .wrap { padding-block: 3.5rem; }
 .foot .grid { align-items: start; gap: 2rem; }
-.foot .brand img { height: 2rem; filter: brightness(0) invert(1); }
+.foot .brand img { height: 2.4rem; }
 .foot h4 { font-size: var(--step-small); font-weight: 600; color: #fff; margin-bottom: 0.7rem; letter-spacing: 0.02em; }
 .foot a { color: #d9d6cf; text-decoration: none; }
 .foot a:hover { color: #fff; }
