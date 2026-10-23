@@ -1,0 +1,608 @@
+{
+  "lang": "da",
+  "generated": "2026-10-23",
+  "original": "https://etch.dk",
+  "preview": "https://12fwww.github.io/etch-dk-www/",
+  "summary": {
+    "seo_old": 83,
+    "seo_new": 93,
+    "vulns_old": 52,
+    "vulns_unauth_old": 7,
+    "outdated_old": 3,
+    "third_party_old": 3
+  },
+  "platform": {
+    "cms": "WordPress",
+    "core": {
+      "version": "7.1.3",
+      "latest": "7.1.3",
+      "outdated": false,
+      "version_hidden": false,
+      "vulnerabilities": []
+    },
+    "server": {
+      "server": "Simply.com",
+      "x_powered_by": null,
+      "php_version": null
+    },
+    "tls": {
+      "valid": true,
+      "protocol": "TLSv1.3",
+      "issuer": "Let's Encrypt",
+      "expires": "2026-12-31",
+      "days_left": 68
+    },
+    "content": {
+      "last_content_update": "2023-03-27",
+      "days_since_update": 1306
+    },
+    "fetched_via": "http",
+    "waf_challenge": false
+  },
+  "components": [
+    {
+      "type": "plugin",
+      "slug": "elementor",
+      "version": "3.25.4",
+      "version_source": "generator",
+      "latest": "4.3.5",
+      "latest_released": "2026-10-13",
+      "status": "outdated",
+      "name": "Elementor Website Builder",
+      "vulns": 21,
+      "unauth": 0,
+      "worst": "medium",
+      "top": [
+        {
+          "title": "Elementor Website Builder <= 3.25.10 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2024-54444",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "3.25.11",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2024-54444",
+          "unauthenticated": false
+        },
+        {
+          "title": "Elementor Website Builder <= 3.29.0 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2024-50555",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "3.29.1",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2024-50555",
+          "unauthenticated": false
+        },
+        {
+          "title": "Elementor Website Builder <= 3.35.5 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2026-32352",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "3.35.6",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-32352",
+          "unauthenticated": false
+        }
+      ]
+    },
+    {
+      "type": "plugin",
+      "slug": "elementor-pro",
+      "version": "3.11.7",
+      "version_source": "asset ?ver= (guess)",
+      "latest": null,
+      "latest_released": null,
+      "status": "commercial",
+      "name": "Elementor Pro",
+      "vulns": 13,
+      "unauth": 2,
+      "worst": "critical",
+      "top": [
+        {
+          "title": "Elementor Pro <= 4.2.1 - Unauthenticated Arbitrary File Upload via Upload Field Array Validation Bypass",
+          "cve": "CVE-2026-32475",
+          "severity": "critical",
+          "score": 9.0,
+          "fixed_in": "4.2.2",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-32475",
+          "unauthenticated": true
+        },
+        {
+          "title": "WordPress  Elementor Pro Plugin    <= 3.19.2 is vulnerable to Sensitive Data Exposure",
+          "cve": "CVE-2024-23523",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "3.19.3",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2024-23523",
+          "unauthenticated": false
+        },
+        {
+          "title": "WordPress Elementor Pro Plugin <= 3.25.10 is vulnerable to Sensitive Data Exposure",
+          "cve": "CVE-2024-8494",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "3.25.11",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2024-8494",
+          "unauthenticated": false
+        }
+      ]
+    },
+    {
+      "type": "plugin",
+      "slug": "premium-addons-for-elementor",
+      "version": "4.10.62",
+      "version_source": "asset ?ver= (guess)",
+      "latest": "4.11.116",
+      "latest_released": "2026-10-23",
+      "status": "outdated",
+      "name": "Premium Addons for Elementor",
+      "vulns": 14,
+      "unauth": 4,
+      "worst": "medium",
+      "top": [
+        {
+          "title": "Premium Addons for Elementor – AI-Ready Elementor Addons, Widgets & Templates <= 4.11.105 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2026-94168",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "4.11.106",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-94168",
+          "unauthenticated": false
+        },
+        {
+          "title": "Premium Addons for Elementor – AI-Ready Elementor Addons, Widgets & Templates <= 4.11.105 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2026-62078",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "4.11.106",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-62078",
+          "unauthenticated": false
+        },
+        {
+          "title": "Premium Addons for Elementor – AI-Ready Elementor Addons, Widgets & Templates <= 4.11.109 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+          "cve": "CVE-2026-103084",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "4.11.110",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-103084",
+          "unauthenticated": false
+        }
+      ]
+    },
+    {
+      "type": "plugin",
+      "slug": "sitepress-multilingual-cms",
+      "version": "4.6.13",
+      "version_source": "generator",
+      "latest": null,
+      "latest_released": null,
+      "status": "commercial",
+      "name": "WPML",
+      "vulns": 3,
+      "unauth": 0,
+      "worst": "medium",
+      "top": [
+        {
+          "title": "WPML Multilingual CMS <= 4.9.5 - Authenticated (Translator+) SQL Injection via 'sorting' Parameter",
+          "cve": "CVE-2026-12248",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "4.9.6",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-12248",
+          "unauthenticated": false
+        },
+        {
+          "title": "WPML Multilingual CMS <= 4.9.5 - Incorrect Authorization to Authenticated (Subscriber+) SQL Injection via ‘elementIds’",
+          "cve": "CVE-2026-17509",
+          "severity": "medium",
+          "score": 6.5,
+          "fixed_in": "4.9.6",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2026-17509",
+          "unauthenticated": false
+        },
+        {
+          "title": "WPML Multilingual CMS 3.6.0 - 4.7.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via wpml_language_switcher Shortcode",
+          "cve": "CVE-2025-3488",
+          "severity": "medium",
+          "score": 5.4,
+          "fixed_in": "4.7.3",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2025-3488",
+          "unauthenticated": false
+        }
+      ]
+    },
+    {
+      "type": "plugin",
+      "slug": "wpml-cms-nav",
+      "version": "1.5.5",
+      "version_source": "asset ?ver= (guess)",
+      "latest": null,
+      "latest_released": null,
+      "status": "commercial",
+      "name": "wpml-cms-nav",
+      "vulns": 0,
+      "unauth": 0,
+      "worst": null,
+      "top": []
+    },
+    {
+      "type": "theme",
+      "slug": "hello-elementor",
+      "version": "2.6.1",
+      "version_source": "style.css",
+      "latest": "3.5.1",
+      "latest_released": "2026-08-25",
+      "status": "outdated",
+      "name": "Hello Elementor",
+      "vulns": 1,
+      "unauth": 1,
+      "worst": "medium",
+      "top": [
+        {
+          "title": "WordPress  Hello Elementor Theme    <= 3.0.0 is vulnerable to Cross Site Request Forgery (CSRF)",
+          "cve": "CVE-2024-31289",
+          "severity": "medium",
+          "score": 4.3,
+          "fixed_in": "3.0.1",
+          "link": "https://www.cve.org/CVERecord?id=CVE-2024-31289",
+          "unauthenticated": true
+        }
+      ]
+    }
+  ],
+  "security_headers": {
+    "strict-transport-security": {
+      "present": false,
+      "value": "",
+      "why": "HSTS: browsers always use HTTPS"
+    },
+    "content-security-policy": {
+      "present": false,
+      "value": "",
+      "why": "CSP: limits which scripts may run"
+    },
+    "x-frame-options": {
+      "present": false,
+      "value": "",
+      "why": "Clickjacking protection"
+    },
+    "x-content-type-options": {
+      "present": true,
+      "value": "nosniff",
+      "why": "MIME sniffing protection"
+    },
+    "referrer-policy": {
+      "present": true,
+      "value": "no-referrer-when-downgrade",
+      "why": "Referrer policy"
+    },
+    "permissions-policy": {
+      "present": false,
+      "value": "",
+      "why": "Permissions policy (camera, microphone, ...)"
+    }
+  },
+  "exposures": [
+    {
+      "check": "xmlrpc",
+      "url": "/xmlrpc.php",
+      "exposed": false,
+      "why": "XML-RPC is a common brute-force and DDoS amplification target"
+    },
+    {
+      "check": "user_enumeration",
+      "url": "/wp-json/wp/v2/users",
+      "exposed": true,
+      "count": 2,
+      "why": "login names are public, half of a password attack"
+    },
+    {
+      "check": "login_page",
+      "url": "/wp-login.php",
+      "exposed": true,
+      "why": "the admin login is reachable by anyone on the internet"
+    },
+    {
+      "check": "readme",
+      "url": "/readme.html",
+      "exposed": true,
+      "why": "tells attackers the WordPress version"
+    },
+    {
+      "check": "directory_listing",
+      "url": "/wp-content/uploads/",
+      "exposed": false,
+      "why": "every uploaded file can be browsed"
+    },
+    {
+      "check": "debug_log",
+      "url": "/wp-content/debug.log",
+      "exposed": false,
+      "why": "debug logs leak paths and errors"
+    }
+  ],
+  "third_party": [
+    "Google Analytics",
+    "Cookiebot",
+    "Google Fonts (external)"
+  ],
+  "checks": [
+    {
+      "key": "title",
+      "label": "Sidetitel",
+      "old": 38,
+      "new": 96,
+      "preview": false
+    },
+    {
+      "key": "meta_description",
+      "label": "Metabeskrivelse",
+      "old": 81,
+      "new": 81,
+      "preview": false
+    },
+    {
+      "key": "h1",
+      "label": "Én H1-overskrift",
+      "old": 92,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "headings",
+      "label": "Overskriftsstruktur",
+      "old": 100,
+      "new": 73,
+      "preview": false
+    },
+    {
+      "key": "word_count",
+      "label": "Mængde tekst",
+      "old": 77,
+      "new": 92,
+      "preview": false
+    },
+    {
+      "key": "canonical",
+      "label": "Canonical-link",
+      "old": 100,
+      "new": 100,
+      "preview": true
+    },
+    {
+      "key": "indexable",
+      "label": "Kan indekseres",
+      "old": 100,
+      "new": 100,
+      "preview": true
+    },
+    {
+      "key": "open_graph",
+      "label": "Deling på sociale medier (Open Graph)",
+      "old": 73,
+      "new": 50,
+      "preview": false
+    },
+    {
+      "key": "twitter_card",
+      "label": "Twitter/X-kort",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "structured_data",
+      "label": "Strukturerede data (schema.org)",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "image_alt",
+      "label": "Alt-tekst på billeder",
+      "old": 0,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "image_dimensions",
+      "label": "Billeder med faste mål (ingen hop)",
+      "old": 50,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "image_formats",
+      "label": "Moderne billedformater (WebP/AVIF)",
+      "old": 50,
+      "new": 50,
+      "preview": false
+    },
+    {
+      "key": "viewport",
+      "label": "Mobilvisning",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "lang",
+      "label": "Sprog angivet",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "https",
+      "label": "HTTPS",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "ttfb_ms",
+      "label": "Svartid fra serveren",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "html_kb",
+      "label": "Sidestørrelse (HTML)",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "contact_info",
+      "label": "Kontaktinfo i tekst",
+      "old": 100,
+      "new": 100,
+      "preview": false
+    },
+    {
+      "key": "robots_txt",
+      "label": "robots.txt",
+      "old": 100,
+      "new": 100,
+      "site_level": true
+    },
+    {
+      "key": "sitemap",
+      "label": "Sitemap",
+      "old": 100,
+      "new": 100,
+      "site_level": true
+    },
+    {
+      "key": "llms_txt",
+      "label": "llms.txt (AI-søgemaskiner)",
+      "old": 50,
+      "new": 100,
+      "site_level": true
+    },
+    {
+      "key": "https_redirect",
+      "label": "Omdirigering til HTTPS",
+      "old": 100,
+      "new": 100,
+      "site_level": true
+    }
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "title": "Forside - Etch",
+      "old": 79,
+      "new": 92
+    },
+    {
+      "path": "/cookies/",
+      "title": "Cookies politik - Etch",
+      "old": 74,
+      "new": 89
+    },
+    {
+      "path": "/faconaetsning/",
+      "title": "Faconætsning - Etch",
+      "old": 82,
+      "new": 95
+    },
+    {
+      "path": "/hurtigt-i-gang/",
+      "title": "Hurtigt i gang - Etch",
+      "old": 84,
+      "new": 95
+    },
+    {
+      "path": "/kontakt/",
+      "title": "Kontakt - Etch",
+      "old": 79,
+      "new": 89
+    },
+    {
+      "path": "/oekonomiske-fordele/",
+      "title": "Økonomiske fordele - Etch",
+      "old": 87,
+      "new": 92
+    },
+    {
+      "path": "/om-etch/",
+      "title": "Om Etch - Etch",
+      "old": 76,
+      "new": 87
+    },
+    {
+      "path": "/vi-tilbyder/",
+      "title": "Vi tilbyder  - Etch",
+      "old": 84,
+      "new": 92
+    },
+    {
+      "path": "/vi-tilbyder/bladfjedre/",
+      "title": "Bladfjedre - Etch",
+      "old": 87,
+      "new": 92
+    },
+    {
+      "path": "/vi-tilbyder/dekorative-emner/",
+      "title": "Dekorative emner - Etch",
+      "old": 87,
+      "new": 92
+    },
+    {
+      "path": "/vi-tilbyder/emc-pakninger/",
+      "title": "EMC pakninger - Etch",
+      "old": 84,
+      "new": 92
+    },
+    {
+      "path": "/vi-tilbyder/emc-skaermdaaser/",
+      "title": "EMC skærmdåser - Etch",
+      "old": 82,
+      "new": 92
+    },
+    {
+      "path": "/vi-tilbyder/shims-og-spacere/",
+      "title": "Shims og spacere - Etch",
+      "old": 84,
+      "new": 92
+    }
+  ],
+  "lighthouse": {
+    "old": {
+      "scores": {
+        "performance": 60,
+        "accessibility": 93,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp_ms": 12099,
+      "tbt_ms": 149,
+      "cls": 0,
+      "bytes": 3133576,
+      "requests": 76,
+      "final_url": "https://etch.dk/",
+      "form_factor": "mobile"
+    },
+    "new": {
+      "scores": {
+        "performance": 99,
+        "accessibility": 98,
+        "best-practices": 100,
+        "seo": 66
+      },
+      "lcp_ms": 1778,
+      "tbt_ms": 0,
+      "cls": 0,
+      "bytes": 260034,
+      "requests": 16,
+      "final_url": "https://12fwww.github.io/etch-dk-www/",
+      "form_factor": "mobile"
+    }
+  },
+  "screenshots": {
+    "old-desktop": "seo/old-desktop.jpg",
+    "new-desktop": "seo/new-desktop.jpg",
+    "old-mobile": "seo/old-mobile.jpg",
+    "new-mobile": "seo/new-mobile.jpg"
+  },
+  "pricing": null
+}
