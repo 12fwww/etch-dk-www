@@ -66,7 +66,7 @@ const capabilities = [
   <section class="section wrap" style="padding-top:0">
     <h2 data-rise style="--i:0">Hvad der er muligt</h2>
     <ul class="dotlist" style="margin-top:1.4rem">
-      {capabilities.map((c, i) => <li data-rise style="--i:" + (i % 4) + ">{" + c + "}</li>)}
+      {capabilities.map((c, i) => <li data-rise style={`--i:${i % 4}`}>{c}</li>)}
     </ul>
   </section>
 

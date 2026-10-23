@@ -38,12 +38,12 @@ const { page } = Astro.props;
   <section class="section wrap" style="padding-top:0">
     {page.bullets && (
       <ul class="dotlist" style="margin-top:0.4rem">
-        {page.bullets.map((b, i) => <li data-rise style="--i:" + i + ">{" + b + "}</li>)}
+        {page.bullets.map((b, i) => <li data-rise style={`--i:${i}`}>{b}</li>)}
       </ul>
     )}
     <div style="margin-top:1.6rem; display:grid; gap:1rem">
       {page.body.map((p, i) => (
-        <p data-rise style="--i:" + i + ">{" + p + "}</p>
+        <p data-rise style={`--i:${i}`}>{p}</p>
       ))}
     </div>
     {page.second && (
