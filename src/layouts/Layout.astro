@@ -6,7 +6,7 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
 import logoClean from '../assets/original/logo-clean.png';
 
 
@@ -31,6 +31,8 @@ const nav = [
 const production = (import.meta.env.PUBLIC_PRODUCTION_URL || Astro.site?.origin || '').replace(/\/$/, '');
 const preview = import.meta.env.PUBLIC_PREVIEW !== '0';
 const canonical = production + path;
+const og = image ? await getImage({ src: image, width: 1200, format: 'jpg' }) : null;
+const ogUrl = og ? new URL(og.src, Astro.site).href : undefined;
 ---
 <!doctype html>
 <html lang="da-DK" class="js">
@@ -48,7 +50,10 @@ const canonical = production + path;
   <meta property="og:url" content={canonical} />
   <meta property="og:locale" content="da_DK" />
   <meta property="og:site_name" content="Etch A/S" />
-  <meta name="twitter:card" content="summary" />
+  {ogUrl && <meta property="og:image" content={ogUrl} />}
+  {og && <meta property="og:image:width" content={String(og.attributes.width ?? 1200)} />}
+  {og && <meta property="og:image:height" content={String(og.attributes.height ?? 630)} />}
+  <meta name="twitter:card" content={ogUrl ? 'summary_large_image' : 'summary'} />
   {jsonld.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
 </head>
 <body>

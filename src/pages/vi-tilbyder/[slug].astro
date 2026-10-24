@@ -43,6 +43,7 @@ const { page } = Astro.props;
   <section class="section wrap" style="padding-top:0">
     <div class="split">
       <div>
+        <h2 style="font-size:var(--step-head); margin-bottom:1.4rem">Om {page.h1}</h2>
         {page.bullets && !page.lead.trim().endsWith(':') && (
           <ul class="dotlist" style="margin-bottom:1.6rem">
             {page.bullets.map((b, i) => <li data-rise style={`--i:${i}`}>{b}</li>)}

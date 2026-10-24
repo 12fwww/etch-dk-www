@@ -46,10 +46,16 @@ const org = {
         <p style="margin-top:1.1rem; max-width:64ch" data-rise style="--i:2">
           Har du en tegning eller en skitse, du gerne vil have prissat? Send den til os, så vender
           vi tilbage med et forslag til materiale, tykkelse, overfladebehandling og leveringstid.
-          Ring gerne i god tid, så vi kan sikre lager og hurtig levering af netop dit materiale.
+          De fleste forespørgsler besvarer vi samme dag, og prototyper leverer vi ofte fra dag til dag.
+        </p>
+        <p style="margin-top:1.1rem; max-width:64ch" data-rise style="--i:3">
+          Har du ikke en færdig CAD-tegning, er det også helt i orden. En skitse, et foto eller en
+          beskrivelse af målene er som udgangspunkt nok til, at vi kan vurdere emnet, vælge faconætsning
+          eller en anden metode og give dig en realistisk pris. Vi hjælper gerne med at vælge den rette
+          plade, overflade og tolerance, så emnet overholder dine krav ved første leverance.
         </p>
       </div>
-      <figure class="figure" data-reveal>
+      <figure class="figure">
         <Picture src={production} alt="Hånd i enganghandske fører et ætset metalark gennem en maskine" widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 46vw, 92vw" />
         <figcaption class="cap small">Fra tegning til leveret emne</figcaption>
       </figure>
@@ -57,7 +63,8 @@ const org = {
   </section>
 
   <section class="section wrap" style="padding-top:0">
-    <div class="contact-grid" data-reveal>
+    <h2 style="font-size:var(--step-head); margin-bottom:1.6rem">Sådan når du os</h2>
+    <div class="contact-grid">
       <div class="contact-block">
         <div class="k">Ring til os</div>
         <a class="v" href={company.phoneHref}>+45 27 11 65 59</a>
