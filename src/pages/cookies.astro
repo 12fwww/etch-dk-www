@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { breadcrumb, company } from '../data/site';
+import production from '../assets/original/production.jpg';
 ---
 <Layout
   title="Cookiespolitik for hjemmesiden | Etch A/S"
   description="Læs, hvilke cookies hjemmesiden for Etch A/S bruger, formålet med dem, hvilke tredjeparter der er involveret og hvordan du kan slette dem."
   path="/cookies/"
+  image={production}
   jsonld={[breadcrumb([
     { name: 'Forside', path: '/' },
     { name: 'Cookiespolitik', path: '/cookies/' },
