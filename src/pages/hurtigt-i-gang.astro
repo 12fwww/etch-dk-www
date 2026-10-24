@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 import { breadcrumb, base, company } from '../data/site';
 import production from '../assets/original/production.jpg';
+import gaskets from '../assets/original/gaskets-cans.jpg';
 ---
 <Layout
   title="Hurtigt i gang med Etch | pris og leveringstid"
@@ -14,25 +16,41 @@ import production from '../assets/original/production.jpg';
   ])]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Hurtigt i gang hos Etch</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      Ring eller e-mail for pris og leveringstid. Vi lagerfører en del tyndplademetal. Ring
-      gerne i god tid, så vi kan få materialer hjem på lager og dermed sikre hurtig levering.
-    </p>
-    <p style="margin-top:1.1rem; max-width:64ch" data-rise style="--i:2">
-      Vi hjælper gerne med design af dit emne – herunder mekanik, EMC-afskærmning og overflader
-      til kontakt- og korrosionsbeskyttelse – og finder det optimale layout, når emnet skal
-      efterbearbejdes, f.eks. bukket, overfladebehandlet eller silketrykkes.
-    </p>
-    <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem" data-rise style="--i:2">
-      <a class="button big" href={company.phoneHref}>Ring til os</a>
-      <a class="button big ghost" href={company.emailHref}>Send en e-mail</a>
+    <div class="split">
+      <div>
+        <h1>Hurtigt i gang hos Etch</h1>
+        <p class="lead" style="margin-top:1rem">
+          Ring eller e-mail for pris og leveringstid. Vi lagerfører en del tyndplademetal. Ring
+          gerne i god tid, så vi kan få materialer hjem på lager og dermed sikre hurtig levering.
+        </p>
+        <p style="margin-top:1.1rem; max-width:64ch">
+          Fra tegning til leveret emne – med kort omløbstid. Nedenfor kan du læse, hvordan vi
+          hjælper med design, efterbearbejdning, montage og styktal.
+        </p>
+        <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href={company.phoneHref}>Ring til os</a>
+          <a class="button big ghost" href={company.emailHref}>Send en e-mail</a>
+        </div>
+      </div>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={production}
+          alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+          widths={[480, 960, 1440]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 50vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Fra tegning til leveret emne</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section wrap" style="padding-top:0">
-    <h2 data-rise style="--i:0">Sådan hjælper vi</h2>
-    <div style="margin-top:1.4rem; display:grid; gap:1.1rem; max-width:70ch">
+    <div class="split" style="align-items:start">
+      <div>
+        <h2 data-rise style="--i:0">Sådan hjælper vi</h2>
+        <div style="margin-top:1.4rem; display:grid; gap:1.1rem">
       <p data-rise style="--i:0">
         <strong>Design:</strong> Vi hjælper gerne med design – herunder mekanik, EMC-afskærmning
         og overflader (kontakt og korrosionsbeskyttelse).
@@ -57,16 +75,38 @@ import production from '../assets/original/production.jpg';
         omløbstid – og vi sidder klar, hvis du bare vil have en uforpligtende snak om, hvad
         faconætsning kan, og hvad det koster til netop din opgave.
       </p>
+        </div>
+      </div>
+      <div class="contact-block" data-reveal style="background:var(--surface); padding:1.6rem; align-self:start">
+        <p class="k" style="margin-bottom:1rem">Så ring eller skriv – det tager ikke lang tid</p>
+        <p class="v" style="margin-bottom:.4rem"><a href={company.phoneHref}>{company.phone}</a></p>
+        <p class="v" style="margin-bottom:1.4rem"><a href={company.emailHref}>{company.email}</a></p>
+        <p style="color:var(--muted); font-size:var(--step-small)">Vi åbner kl. 08.00 mandag–fredag og svarer, så snart vi kan. Send gerne en CAD-fil eller en skitse – også en uforpligtigende snak om pris og leveringstid.</p>
+      </div>
     </div>
   </section>
 
   <section class="section" style="background:var(--surface)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:44ch">
+    <div class="wrap split" style="align-items:center">
+      <div>
         <h2 style="font-size:var(--step-head)">Klar til at starte?</h2>
-        <p class="muted" style="margin-top:.6rem">Send os en CAD-fil eller en skitse, så finder vi den bedste løsning.</p>
+        <p class="muted" style="margin-top:.6rem; margin-bottom:1.4rem">Send os en CAD-fil eller en skitse, så finder vi den bedste løsning for netop dit emne.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href={company.emailHref}>Send en e-mail</a>
+          <a class="button big ghost" href={company.phoneHref}>Ring til os</a>
+        </div>
       </div>
-      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={gaskets}
+          alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Ætset serie fra produktionen</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

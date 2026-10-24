@@ -3,7 +3,9 @@ import { Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import { breadcrumb, base } from '../data/site';
 import precision from '../assets/original/precision.jpg';
+import production from '../assets/original/production.jpg';
 import volume from '../assets/original/volume.jpg';
+import gaskets from '../assets/original/gaskets-cans.jpg';
 
 const og = precision;
 ---
@@ -18,39 +20,57 @@ const og = precision;
   ])]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Om Etch</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      Etch A/S blev etableret den 2. april 2007 i nye produktionslokaler hos vores medejer
-      Sur-Tech A/S i Farum.
-    </p>
-  </section>
-
-  <section class="section wrap" style="padding-top:0">
-    <div class="split" data-reveal>
-      <div style="display:grid; gap:1rem">
-        <p data-rise style="--i:0">
+    <div class="split" style="align-items:center">
+      <div>
+        <h1>Om Etch</h1>
+        <p class="lead" style="margin-top:1rem">
+          Etch A/S blev etableret den 2. april 2007 i nye produktionslokaler hos vores medejer
+          Sur-Tech A/S i Farum.
+        </p>
+        <p style="margin-top:1rem">
           Vi indgår i et produktionsfællesskab med Sur-Tech, og kan herigennem udnytte vores
           fælles faciliteter og fleksible medarbejderstab.
         </p>
-        <p data-rise style="--i:1">
+        <div style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+          <a class="button big ghost" href={base + '/faconaetsning/'}>Se processen</a>
+        </div>
+      </div>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={volume}
+          class="wide" alt="Flere ark med ætsede metaldele i produktionen"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">I produktion hos Sur-Tech i Farum</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <div class="split">
+      <div style="display:grid; gap:1rem">
+        <p data-rise style="--i:0">
           Vi leverer industrielle løsninger i metallisk tyndplade i seriestørrelser fra
           prototyper og 0-serier til produktionskvantiteter.
         </p>
-        <p data-rise style="--i:2">
+        <p data-rise style="--i:1">
           Vores basisproces er faconætsning, men vi tilbyder ligeledes efterbearbejdning i form
-          af bukning, galvanisk og kemisk overfladebehandling, laserskæring, -gravering og
-          -svejsning m.m.
+          af bukning, galvanisk og kemisk overfladebehandling, laserskæring,
+          &#8209;gravering og &#8209;svejsning m.m.
         </p>
-        <p data-rise style="--i:3">
+        <p data-rise style="--i:2">
           Vi har over 20 års erfaring i udvikling og produktion af emner i metallisk
-          tyndplade – fortinsvis til elektronikindustrien. Etch har fokus på produktion i høj
+          tyndplade – fortrinsvis til elektronikindustrien. Etch har fokus på produktion i høj
           kvalitet og lægger stor vægt på kundeservice.
         </p>
-        <p data-rise style="--i:4">
+        <p>
           Det at indgå i et produktionsfællesskab med Sur-Tech A/S betyder, at vi kan
-          kombinere vores specialisering i faconætsning med en bred palette af efterbehandling:
-          bukning i tilpassede værktøjer, galvanisk og kemisk overfladebehandling, laserskæring,
-          -gravering og -svejsning m.m. – alt sammen under samme tag.
+          kombinere vores specialisering i faconætsning med en bred palette af efterbehandling
+          – alt sammen under samme tag.
         </p>
       </div>
       <figure class="figure">
@@ -60,7 +80,7 @@ const og = precision;
           widths={[480, 960, 1440, 2048]}
           formats={['avif','webp']}
           sizes="(min-width:48rem) 50vw, 100vw"
-          aspectRatio="4/3"
+         
         />
         <figcaption class="cap">Præcision målt til mikrometer</figcaption>
       </figure>
@@ -68,29 +88,53 @@ const og = precision;
   </section>
 
   <section class="section wrap">
-    <div class="stats" data-reveal>
-      <div class="stat field-ink">
-        <div class="num" style="color:#fff">2007</div>
-        <div class="lbl">Etableret i Farum, sammen med Sur-Tech A/S</div>
+    <div class="split" style="align-items:stretch">
+      <div class="stats" style="grid-template-columns:1fr; align-self:stretch">
+        <div class="stat field-ink">
+          <div class="num" style="color:#fff">2007</div>
+          <div class="lbl">Etableret i Farum, sammen med Sur-Tech A/S</div>
+        </div>
+        <div class="stat field-red">
+          <div class="num">50&nbsp;µm–1&nbsp;mm</div>
+          <div class="lbl" style="color:var(--accent-ink)">Tykkelse af tyndplade, vi forarbejder</div>
+        </div>
+        <div class="stat field-grey">
+          <div class="num">20+&nbsp;år</div>
+          <div class="lbl" style="color:#fff">Erfaring, fortrinsvis til elektronikindustrien</div>
+        </div>
       </div>
-      <div class="stat field-red">
-        <div class="num">50&nbsp;µm–1&nbsp;mm</div>
-        <div class="lbl" style="color:var(--accent-ink)">Tykkelse af tyndplade, vi forarbejder</div>
-      </div>
-      <div class="stat field-grey">
-        <div class="num" style="color:#fff">20+</div>
-        <div class="lbl" style="color:#d9d6cf">Års erfaring – især til elektronikindustrien</div>
-      </div>
+      <figure class="figure">
+        <Picture
+          src={production}
+          alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Flere tusinde emner – 20+ års erfaring, især til elektronikindustrien</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section" style="background:var(--surface)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:44ch">
+    <div class="wrap split" style="align-items:center">
+      <div>
         <h2 style="font-size:var(--step-head)">Hvem er vi</h2>
-        <p class="muted" style="margin-top:.6rem">Etch A/S i Farum – din partner i faconætsning af tyndplade.</p>
+        <p class="muted" style="margin-top:.6rem; margin-bottom:1.4rem">Etch A/S i Farum – din partner i faconætsning af tyndplade. Over 20 års erfaring i udvikling og produktion af emner i metallisk tyndplade.</p>
+        <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
       </div>
-      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={gaskets}
+          alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Ætset serie fra produktionen</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

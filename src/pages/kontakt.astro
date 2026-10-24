@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 import { breadcrumb, company } from '../data/site';
 import production from '../assets/original/production.jpg';
+import volume from '../assets/original/volume.jpg';
 
 const og = production;
 const org = {
@@ -35,49 +37,64 @@ const org = {
   ]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Kontakt os</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      Vi sidder klar til at besvare dine spørgsmål om faconætsning, pris og leveringstid.
-    </p>
-    <p style="margin-top:1.1rem; max-width:64ch" data-rise style="--i:2">
-      Har du en tegning eller en skitse, du gerne vil have prissat? Send den til os, så vender
-      vi tilbage med et forslag til materiale, tykkelse, overfladebehandling og leveringstid.
-      Ring gerne i god tid, så vi kan sikre lager og hurtig levering af netop dit materiale.
-    </p>
+    <div class="split" style="align-items:center">
+      <div>
+        <h1 data-rise style="--i:0">Kontakt os</h1>
+        <p class="lead" data-rise style="--i:1; margin-top:1rem">
+          Vi sidder klar til at besvare dine spørgsmål om faconætsning, pris og leveringstid.
+        </p>
+        <p style="margin-top:1.1rem; max-width:64ch" data-rise style="--i:2">
+          Har du en tegning eller en skitse, du gerne vil have prissat? Send den til os, så vender
+          vi tilbage med et forslag til materiale, tykkelse, overfladebehandling og leveringstid.
+          Ring gerne i god tid, så vi kan sikre lager og hurtig levering af netop dit materiale.
+        </p>
+      </div>
+      <figure class="figure" data-reveal>
+        <Picture src={production} alt="Hånd i enganghandske fører et ætset metalark gennem en maskine" widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 46vw, 92vw" />
+        <figcaption class="cap small">Fra tegning til leveret emne</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="section wrap" style="padding-top:0">
     <div class="contact-grid" data-reveal>
-      <div class="contact-block" data-rise style="--i:0">
+      <div class="contact-block">
         <div class="k">Ring til os</div>
         <a class="v" href={company.phoneHref}>+45 27 11 65 59</a>
         <p class="muted" style="margin-top:.4rem">Ring for yderligere information om vores produkter.</p>
       </div>
-      <div class="contact-block" data-rise style="--i:1">
+      <div class="contact-block">
         <div class="k">Skriv til os</div>
         <a class="v" href={company.emailHref}>info@etch.dk</a>
         <p class="muted" style="margin-top:.4rem">Send en CAD-fil eller en skitse – vi vender tilbage med et forslag.</p>
       </div>
-      <div class="contact-block" data-rise style="--i:2">
+      <div class="contact-block">
         <div class="k">Adresse</div>
         <div class="v">{company.street}, {company.zip}</div>
         <p class="muted" style="margin-top:.4rem">Åben {company.hours} (man–fre).</p>
       </div>
-      <div class="contact-block" data-rise style="--i:3">
-        <div class="k">Andet telefon</div>
+      <div class="contact-block">
+        <div class="k">Fastnet</div>
         <a class="v" href="tel:+4544956566">{company.phone2}</a>
-        <p class="muted" style="margin-top:.4rem">Mobil: {company.phone} · Fast: {company.phone2}</p>
+        <p class="muted" style="margin-top:.4rem; white-space:nowrap">Hverdage {company.hours}</p>
       </div>
     </div>
   </section>
 
   <section class="section" style="background:var(--surface)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:44ch">
+    <div class="wrap split" style="align-items:center">
+      <div>
         <h2 style="font-size:var(--step-head)">Ring i god tid</h2>
-        <p class="muted" style="margin-top:.6rem">Så kan vi sikre lager og hurtig levering af netop dit materiale.</p>
+        <p class="muted" style="margin-top:.6rem; margin-bottom:1.4rem">Så kan vi sikre lager og hurtig levering af netop dit materiale.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href={company.phoneHref}>Ring til os</a>
+          <a class="button big ghost" href={company.emailHref}>Send en e-mail</a>
+        </div>
       </div>
-      <a class="button big" href={company.phoneHref}>Ring til os</a>
+      <figure class="figure" data-reveal>
+        <Picture src={volume} class="wide" alt="Flere ark med ætsede metaldele i produktionen" widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 46vw, 92vw" />
+        <figcaption class="cap small">Ætset serie på ark</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

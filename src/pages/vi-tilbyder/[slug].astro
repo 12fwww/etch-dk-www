@@ -24,42 +24,68 @@ const { page } = Astro.props;
   ])]}
 >
   <section class="section wrap pagehead">
-    <div class="prod-hero" data-reveal>
+    <div class="prod-hero">
       <div class="txt">
         <h1>{page.h1}</h1>
         <p class="lead" style="margin-top:1rem">{page.lead}</p>
+        {page.lead.trim().endsWith(':') && page.bullets && (
+          <ul class="dotlist" style="margin-top:1.2rem">
+            {page.bullets.map((b, i) => <li>{b}</li>)}
+          </ul>
+        )}
       </div>
       <div class="ph">
-        <Picture src={page.image} alt={page.h1 + " – ætset emne"} widths={[480, 960, 1500]} formats={['avif','webp']} sizes="(min-width:56rem) 50vw, 90vw" />
+        <Picture src={page.image} alt={page.h1 + " – ætset emne"} widths={[480, 960, 1500]} formats={['avif','webp']} sizes="(min-width:56rem) 46vw, 90vw" loading="eager" />
       </div>
     </div>
   </section>
 
   <section class="section wrap" style="padding-top:0">
-    {page.bullets && (
-      <ul class="dotlist" style="margin-top:0.4rem">
-        {page.bullets.map((b, i) => <li data-rise style={`--i:${i}`}>{b}</li>)}
-      </ul>
-    )}
-    <div style="margin-top:1.6rem; display:grid; gap:1rem">
-      {page.body.map((p, i) => (
-        <p data-rise style={`--i:${i}`}>{p}</p>
-      ))}
+    <div class="split">
+      <div>
+        {page.bullets && !page.lead.trim().endsWith(':') && (
+          <ul class="dotlist" style="margin-bottom:1.6rem">
+            {page.bullets.map((b, i) => <li data-rise style={`--i:${i}`}>{b}</li>)}
+          </ul>
+        )}
+        <div style="display:grid; gap:1rem">
+          {page.body.map((p, i) => (
+            <p style={i > 3 ? 'margin-top:-0.4rem' : ''}>{p}</p>
+          ))}
+        </div>
+      </div>
+      {page.second && (
+        <figure class="figure" data-reveal>
+          <Picture src={page.second} alt={page.h1 + " – detalje"} widths={[480, 960, 1440]} formats={['avif','webp']} sizes="(min-width:48rem) 50vw, 92vw" />
+        </figure>
+      )}
+      {page.spec && (
+        <figure class="figure" data-reveal>
+          <Picture src={page.spec} alt={page.h1 + " – ætset emne"} widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 46vw, 88vw" />
+        </figure>
+      )}
     </div>
-    {page.second && (
-      <figure class="figure" style="margin-top:2rem; max-width:640px" data-reveal>
-        <Picture src={page.second} alt={page.h1 + " – detalje"} widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 50vw, 92vw" aspectRatio="4/3" />
-      </figure>
-    )}
   </section>
 
   <section class="section" style="background:var(--field-red); color:var(--accent-ink)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:48ch">
-        <h2 style="color:#fff; font-size:var(--step-head)">Få en uforpligtende snak</h2>
-        <p style="color:var(--accent-ink); margin-top:.6rem">Kontakt os på tlf. 27 11 65 59 og hør, hvilke løsninger vi kan tilbyde.</p>
+    <div class="wrap">
+      <div class="split" style="align-items:center">
+        <div style="max-width:40rem">
+          <h2 style="color:#fff; margin-bottom:.6rem">Få en uforpligtende snak</h2>
+          <p style="color:var(--accent-ink); margin-bottom:1.6rem; max-width:52ch">Send os en CAD-fil eller en skitse, så finder vi sammen den bedste løsning for netop dit emne – og du får en uforpligtende snak om pris og leveringstid.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+            <a class="button big" style="background:#fff; color:var(--ink)" href={base + '/kontakt/'}>Kontakt os</a>
+            <a class="button big ghost" href="tel:+4527116559">Ring til os</a>
+          </div>
+        </div>
+        <div style="display:grid; gap:.7rem; align-self:start; background:rgba(0,0,0,.18); padding:1.4rem">
+          <div style="font-family:var(--font-display); font-weight:600; color:#fff">Etch A/S</div>
+          <a href="tel:+4527116559" style="color:#fff; white-space:nowrap">+45 27 11 65 59</a>
+          <a href="mailto:info@etch.dk" style="color:#fff">info@etch.dk</a>
+          <span>Bygmarken 3, 3520 Farum</span>
+          <span style="white-space:nowrap">Åben 08.00–16.00 (man–fre)</span>
+        </div>
       </div>
-      <a class="button big" style="background:#fff; color:var(--ink)" href={base + '/kontakt/'}>Kontakt os</a>
     </div>
   </section>
 </Layout>

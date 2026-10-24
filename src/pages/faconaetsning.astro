@@ -3,6 +3,8 @@ import { Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import { processSteps, breadcrumb, base } from '../data/site';
 import production from '../assets/original/production.jpg';
+import gaskets from '../assets/original/gaskets-cans.jpg';
+import precision from '../assets/original/precision.jpg';
 import s1 from '../assets/original/step-1.png';
 import s2 from '../assets/original/step-2.png';
 import s3 from '../assets/original/step-3.png';
@@ -24,28 +26,55 @@ const stepsImg = [s1, s2, s3, s4, s5, s6, s7];
   ])]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Faconætsningsprocessen trin for trin</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      Faconætsningsteknikken beskrives lettest ved at se et stykke metallisk tyndplade i
-      snitbillede. Billederne viser en detalje på ca. 1&nbsp;mm × 3&nbsp;mm × 0,1&nbsp;mm.
-    </p>
+    <div style="max-width:62ch">
+      <h1 data-rise style="--i:0">Faconætsning – trin for trin</h1>
+      <p class="lead" data-rise style="--i:1; margin-top:1rem">
+        Faconætsningsteknikken beskrives lettest ved at se et stykke metallisk tyndplade i
+        snitbillede. Billederne viser en detalje på ca. 1&nbsp;mm × 3&nbsp;mm × 0,1&nbsp;mm.
+      </p>
+    </div>
+    <figure class="figure" data-reveal style="margin-top:2rem">
+      <Picture
+        src={production}
+        alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+        widths={[480, 960, 1440]}
+        formats={['avif','webp']}
+        sizes="(min-width:48rem) 72rem, 92vw"
+      />
+      <figcaption class="cap small">Ætseprocessen i gang</figcaption>
+    </figure>
   </section>
 
   <section class="section wrap" style="padding-top:0">
-    <h2 data-rise style="--i:0">Basisprocessen</h2>
-    <p style="margin-top:1rem; max-width:70ch" data-rise style="--i:1">
-      Faconætsning, også kaldet ætset faconætsning, er en fotosensitiv proces, hvor et lag
-      fotosensitiv ætseresist bringes på metallisk tyndplade og derefter belyses gennem en
-      master, der bærer emnets facon. Den hærdede resist beskytter materialet, mens den ikke
-      hærdede fjernes i fremkaldelsen – og det er der, at materialet ætses bort i den ønskede
-      dybde. Resultatet er et emne med kompleks geometri, høje tolerancer og frie, stressfrie
-      kanter.
-    </p>
-    <p style="margin-top:1rem; max-width:70ch" data-rise style="--i:2">
-      Fordelen ved at se processen som et stykke tyndplade i snitbillede er, at man direkte kan
-      se, hvordan hver facon – hulle, udskæring eller nedætsning – dannes, trin for trin, fra
-      rensning af panelet til den færdige strip.
-    </p>
+    <div class="split">
+      <div>
+        <h2>Basisprocessen</h2>
+        <p style="margin-top:1rem; max-width:70ch">
+          Faconætsning, også kaldet ætset faconætsning, er en fotosensitiv proces, hvor et lag
+          fotosensitiv ætseresist bringes på metallisk tyndplade og derefter belyses gennem en
+          master, der bærer emnets facon. Den hærdede resist beskytter materialet, mens den ikke
+          hærdede fjernes i fremkaldelsen – og det er der, at materialet ætses bort i den ønskede
+          dybde. Resultatet er et emne med kompleks geometri, høje tolerancer og frie, stressfrie
+          kanter.
+        </p>
+        <p style="margin-top:1rem; max-width:70ch" class="muted">
+          Fordelen ved at se processen som et stykke tyndplade i snitbillede er, at man direkte
+          kan se, hvordan hver facon – hulle, udskæring eller nedætsning – dannes, trin for trin,
+          fra rensning af panelet til den færdige strip.
+        </p>
+      </div>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={gaskets}
+          alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Ætset serie fra produktionen</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="section wrap" style="padding-top:0">
@@ -53,32 +82,36 @@ const stepsImg = [s1, s2, s3, s4, s5, s6, s7];
     <p class="muted" style="margin-top:.6rem; margin-bottom:1.6rem">Fra rensning af panelet til det færdige emne:</p>
     <ol class="steps">
       {processSteps.map((s, i) => (
-        <li class="step" data-rise style="--i:" + i + ">
-          <span class="ph"><Picture src={stepsImg[i]} alt={"Faconætsning – trin " + s.n} widths={[200, 300]} format={['avif','webp']} /></span>
+        <li class="step" data-rise style={`--i:${i}`}>
+          <span class="ph">          <Picture src={stepsImg[i]} alt={"Faconætsning – trin " + s.n} widths={[200]} format={['avif','webp']} sizes="min(100%, 150px)" /></span>
           <span class="n">Trin {s.n}</span>
           <span class="t">{s.t}</span>
         </li>
       ))}
     </ol>
-    <figure class="figure" style="margin-top:2rem; max-width:44rem" data-reveal>
-      <Picture
-        src={production}
-        alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
-        widths={[480, 960, 1440, 2048]}
-        formats={['avif','webp']}
-        sizes="(min-width:48rem) 44rem, 92vw"
-        aspectRatio="4/3"
-      />
-    </figure>
   </section>
 
   <section class="section" style="background:var(--surface)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:44ch">
+    <div class="wrap split" style="align-items:center">
+      <div>
         <h2 style="font-size:var(--step-head)">Har du et emne, der skal ætses?</h2>
-        <p class="muted" style="margin-top:.6rem">Ring eller send os en mail for pris og leveringstid.</p>
+        <p class="muted" style="margin-top:.6rem; margin-bottom:1.4rem">Ring eller send os en mail for pris og leveringstid – vi svarer inden for kort tid.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href="tel:+4527116559">Ring til os</a>
+          <a class="button big ghost" href="mailto:info@etch.dk">Send en mail</a>
+        </div>
       </div>
-      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+      <figure class="figure">
+        <Picture
+          src={precision}
+          alt="Hånd holder et tyndt metalstykke ind i en digital mikrometer og måler dets tykkelse"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Send os din tegning, så finder vi den bedste løsning</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

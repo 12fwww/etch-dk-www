@@ -18,10 +18,10 @@ const og = volume;
 >
   <!-- HERO: split stage -->
   <section class="hero">
-    <div class="hero-left wrap">
+    <div class="hero-left">
       <div>
         <h1 data-rise style="--i:0">Faconætsning</h1>
-        <p class="statement" data-rise style="--i:1; margin-top:1.1rem">
+        <p class="statement" data-rise style="--i:1">
           Etch ætser metallisk tyndplade i tykkelser fra 50&nbsp;µm til 1&nbsp;mm. Ofte det
           økonomiske alternativ til stansning og laserskæring.
         </p>
@@ -32,14 +32,13 @@ const og = volume;
       </div>
     </div>
     <div class="hero-right">
-      <figure class="hero-tile" style="position:relative" data-drift>
+      <figure class="hero-tile" style="position:relative">
         <Picture
           src={precision}
           alt="Hånd holder et tyndt metalstykke ind i en digital mikrometer og måler dets tykkelse"
           widths={[480, 960, 1440, 2048]}
           formats={['avif','webp']}
-          sizes="(min-width: 56rem) 44vw, 78vw"
-          aspectRatio="4/3"
+          sizes="(min-width: 56rem) 44vw, 94vw"
         />
         <figcaption class="cap">Præcision målt til mikrometer</figcaption>
       </figure>
@@ -48,7 +47,7 @@ const og = volume;
 
   <!-- STATEMENT -->
   <section class="section wrap">
-    <div class="split" data-reveal>
+    <div class="split split-wide-left">
       <div>
         <h2>Metallisk tyndpladebearbejdning</h2>
         <p class="lead" style="margin-top:1rem">
@@ -64,37 +63,44 @@ const og = volume;
           <a class="button ghost" href={base + '/vi-tilbyder/'}>Se, hvad vi tilbyder</a>
         </div>
       </div>
-      <ul class="dotlist">
-        <li data-rise style="--i:0">Design &amp; konstruktion</li>
-        <li data-rise style="--i:1">Lave start- og totalomkostninger</li>
-        <li data-rise style="--i:2">Direkte fra prototyper til masseproduktion</li>
-        <li data-rise style="--i:3">Kompleks geometri med høj præcision</li>
-      </ul>
+        <ul class="dotlist">
+          <li data-rise style="--i:0">Design &amp; konstruktion</li>
+          <li data-rise style="--i:1">Lave start- og totalomkostninger</li>
+          <li data-rise style="--i:2">Direkte fra prototyper til masseproduktion</li>
+          <li data-rise style="--i:3">Kompleks geometri med høj præcision</li>
+        </ul>
     </div>
   </section>
 
   <!-- CATALOGUE -->
   <section class="section" style="background:var(--surface)">
     <div class="wrap">
-      <h2 style="margin-bottom:.4rem">Hvad vi ætser</h2>
+      <h2 data-rise style="--i:0; margin-bottom:.4rem">Hvad vi ætser</h2>
       <p class="lead muted" style="margin-bottom:2rem">Hver type emne ætset i metallisk tyndplade – præsenteret som specimener, hver for sig.</p>
       <div class="catalogue">
         {products.map((p, i) => (
-          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style="--i:" + (i % 3) + ">
+          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style={`--i:${i % 3}`}>
             <div class={"tile " + p.field}>
-              <Picture src={p.image} alt={p.name} widths={[360, 640]} formats={['avif','webp']} sizes="(min-width:48rem) 30vw, 50vw" />
+              <Picture src={p.image} alt={p.name} widths={[480, 960, 1500]} formats={["avif","webp"]} sizes="(min-width:64rem) 30vw, (min-width:48rem) 45vw, 92vw" />
             </div>
             <p class="name">{p.name}</p>
             <p class="fact">{p.fact}</p>
           </a>
         ))}
+        <a class="specimen cta" href={base + '/vi-tilbyder/'} data-rise style="--i:0">
+          <div class="tile cta-tile">
+            <Picture src={gaskets} alt="Ætset metalark med kontakter" widths={[480, 960, 1500]} formats={['avif','webp']} sizes="(min-width:64rem) 30vw, (min-width:48rem) 45vw, 92vw" />
+          </div>
+          <p class="name">Har du et emne?</p>
+          <p class="fact">Send os en CAD-fil – vi svarer med en pris og en leveringstid.</p>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- PROCESS PREVIEW -->
   <section class="section wrap">
-    <div class="split" data-reveal>
+    <div class="split">
       <div>
         <h2>Sådan går processen</h2>
         <p class="lead" style="margin-top:1rem">
@@ -113,7 +119,7 @@ const og = volume;
           widths={[480, 960, 1440, 2048]}
           formats={['avif','webp']}
           sizes="(min-width:48rem) 50vw, 100vw"
-          aspectRatio="4/3"
+         
         />
         <figcaption class="cap small">Ætseprocessen i gang</figcaption>
       </figure>
@@ -122,7 +128,7 @@ const og = volume;
 
   <!-- STATS -->
   <section class="section wrap">
-    <div class="stats" data-reveal>
+    <div class="stats">
       <div class="stat field-red">
         <div class="num">50&nbsp;µm–1&nbsp;mm</div>
         <div class="lbl" style="color:var(--accent-ink)">Tykkelse af metallisk tyndplade, vi forarbejder</div>
@@ -136,7 +142,7 @@ const og = volume;
 
   <!-- CTA -->
   <section class="section" style="background:var(--field-red); color:var(--accent-ink)">
-    <div class="wrap split" data-reveal>
+    <div class="wrap split">
       <div>
         <h2 style="color:#fff; max-width:12ch">Få en snak om ætsning</h2>
         <p style="color:var(--accent-ink); margin-top:1rem; max-width:46ch">
@@ -148,14 +154,14 @@ const og = volume;
           <a class="button big ghost" href={company.emailHref}>info@etch.dk</a>
         </div>
       </div>
-      <figure class="figure" style="max-width:26rem">
+      <figure class="figure" data-reveal style="max-width:26rem">
         <Picture
           src={gaskets}
           alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
-          widths={[480]}
+          widths={[480, 540]}
           formats={['avif','webp']}
-          sizes="26rem"
-          aspectRatio="4/3"
+          sizes="(min-width:56rem) 26rem, 92vw"
+         
         />
       </figure>
     </div>

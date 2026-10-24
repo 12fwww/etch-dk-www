@@ -3,6 +3,7 @@ import shims from '../assets/original/shims.png';
 import skaermdaaser from '../assets/original/skaermdaaser.png';
 import shield from '../assets/original/shield.png';
 import gaskets from '../assets/original/gaskets.jpg';
+import gasketsCans from '../assets/original/gaskets-cans.jpg';
 import ahorn from '../assets/original/ahorn.png';
 import type { ImageMetadata } from 'astro';
 
@@ -15,6 +16,7 @@ export type ProductPage = {
   body: string[];
   image: ImageMetadata;
   second?: ImageMetadata;
+  spec?: ImageMetadata;
 };
 
 export const productPages: ProductPage[] = [
@@ -32,12 +34,13 @@ export const productPages: ProductPage[] = [
       'Bukning af små emner i lange strips uden brug af dyre værktøjer',
     ],
     body: [
-      'Alt efter dine ønsker kan vi levere bladfjedrene i såvel bukket som ubukket tilstand. Har du brug for forgyldning, fortinning eller anden overfladebehandling af din kontaktfjeder, klarer vi også det. Overfladebehandlingen kan eventuelt være partiel, så kun de relevante områder behandles.',
+      'Alt efter dine ønsker kan vi levere bladfjedrene i såvel bukket som ubukket tilstand. Har du brug for forgyldning, fortinning eller anden overfladebehandling af dine kontaktfjedre, klarer vi også det. Overfladebehandlingen kan eventuelt være partiel, så kun de relevante områder behandles.',
       'Vi producerer op til flere tusinde små emner på ét ark. Overfladebehandling i hele ark sparer dyr håndtering, hvis alternativet ellers er ophængning af enkelt-emner. På den måde holder vi stykprisen nede, når kvantiteten stiger.',
-      'Vi forarbejder de fleste metaller – også syrefast stål – i tykkelser fra 0,025 mm til over 1 mm. Send os din tegning, så finder vi den bedste kombination af materiale, tykkelse og overfladebehandling til netop din kontaktfjeder.',
+      'Vi forarbejder de fleste metaller – også syrefast stål – i tykkelser fra 0,025 mm til over 1 mm. Send os din tegning, så finder vi den bedste kombination af materiale, tykkelse og overfladebehandling til netop dine kontaktfjedre.',
           "Praktisk talt kan du tænke på faconætsning som et alternativ til stansning, der sparer dig for værktøjet og giver dig frihed til at ændre designet undervejs – det er ofte netop det, der giver den samlede økonomiske fordel.",
     ],
     image: bladfjedre,
+    spec: gasketsCans,
   },
   {
     slug: 'shims-og-spacere',
@@ -50,6 +53,7 @@ export const productPages: ProductPage[] = [
           "Uanset om shims og spacere skal bruges i elektronik, maskineri eller andre præcisionsanvendelser, sikrer processen en ensartet kvalitet fra første til sidste emne i serien.",
     ],
     image: shims,
+    spec: gasketsCans,
   },
   {
     slug: 'emc-skaermdaaser',
@@ -77,6 +81,7 @@ export const productPages: ProductPage[] = [
           "Resultatet er en kompakt, letmonteret afskærmning, der både sparer plads på printkortet og reducerer antallet af komponenter, der skal loddes i samlingen af enheden.",
     ],
     image: shield,
+    spec: gasketsCans,
   },
   {
     slug: 'dekorative-emner',
@@ -87,7 +92,7 @@ export const productPages: ProductPage[] = [
       'Meget tætte hulgeometrier uden at bryde materialet',
       'Koniske huller, eller huller på skrå gennem materialet',
       'Fri for grater',
-      'Mulighed for at nedætsse detaljerede mønstre, logoer eller tekster fra den ene side',
+      'Mulighed for at nedætse detaljerede mønstre, logoer eller tekster fra den ene side',
     ],
     body: [
       'Vi leverer ofte fra dag til dag, så du hurtigt kan se resultatet på et fysisk emne, inden du går i produktion. Det gør det let at justere mønster, logo eller detaljer, mens det stadig er billigt at ændre.',
@@ -96,5 +101,6 @@ export const productPages: ProductPage[] = [
           "Dekorative emner leveres ofte i bronze eller messing med en forgyldt overflade, så de får en flot, detaljeret finish, der holder – et emne, der kan bære et logo eller et mønster helt ned til små detaljer.",
     ],
     image: ahorn,
+    spec: gasketsCans,
   },
 ];

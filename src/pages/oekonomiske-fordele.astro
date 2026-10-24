@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import { breadcrumb, base } from '../data/site';
 import costGraph from '../assets/original/cost-graph.png';
 import costLines from '../assets/original/cost-lines.png';
+import production from '../assets/original/production.jpg';
+import gaskets from '../assets/original/gaskets-cans.jpg';
 
 const og = costGraph;
 ---
@@ -18,12 +20,20 @@ const og = costGraph;
   ])]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Økonomiske fordele ved faconætsning</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      En overordnet økonomisk sammenligning med de almindeligste former for formgivning i
-      metalliske tyndpladematerialer viser, at faconætsning ofte er et økonomisk attraktivt
-      alternativ.
-    </p>
+    <div class="split" style="align-items:center">
+      <div>
+        <h1 data-rise style="--i:0">Økonomiske fordele ved faconætsning</h1>
+        <p class="lead" data-rise style="--i:1; margin-top:1rem">
+          En overordnet økonomisk sammenligning med de almindeligste former for formgivning i
+          metalliske tyndpladematerialer viser, at faconætsning ofte er et økonomisk attraktivt
+          alternativ.
+        </p>
+      </div>
+      <figure class="figure" data-reveal>
+        <Picture src={gaskets} alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund" widths={[480, 960]} formats={['avif','webp']} sizes="(min-width:48rem) 46vw, 92vw" />
+        <figcaption class="cap small">Ætset serie fra produktionen</figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- three cost blocks -->
@@ -31,13 +41,13 @@ const og = costGraph;
     <div class="costs" data-reveal>
       <div class="cost field-ink">
         <div class="tech" style="color:#fff">Laserskæring</div>
-        <div class="price">1.500–4.000 kr.</div>
+        <div class="price" style="color:#fff">1.500–4.000 kr.</div>
         <div style="font-size:var(--step-small); color:#c9c6bf">Startomkostning (programmering + opstilling), typisk.</div>
         <p style="color:#c9c6bf">Skæretiden bestemmer hovedsageligt stykprisen.</p>
       </div>
       <div class="cost field-grey">
         <div class="tech" style="color:#fff">Stans</div>
-        <div class="price">75.000–400.000 kr.</div>
+        <div class="price" style="color:#fff">75.000–400.000 kr.</div>
         <div style="font-size:var(--step-small); color:#d9d6cf">Startomkostning (konstruktion og værktøj), typisk.</div>
         <p style="color:#d9d6cf">Råmaterialet, bemanding, maskinens timepris og vedligehold giver stykprisen.</p>
       </div>
@@ -88,10 +98,19 @@ const og = costGraph;
         </table>
         <p class="small muted" style="margin-top:.8rem">*) EMC-gaskets uden nedætsede fjedre.</p>
       </div>
-      <figure class="figure" style="max-width:30rem">
-        <Picture src={costLines} alt="Lille linjediagram: faconætsning stiger langsommere end stansning over antal emner" widths={[360]} format={['avif','webp']} sizes="30rem" />
-        <figcaption class="cap">Hvor grænserne for den økonomiske fordel ligger</figcaption>
-      </figure>
+      <div style="display:grid; gap:1rem; content-start">
+        <div style="background:var(--bg); padding:1.4rem; display:grid; gap:.7rem">
+          <div style="font-family:var(--font-display); font-weight:600; font-size:1.05rem">Hvordan du finder dit emne</div>
+          <p style="color:var(--muted); font-size:1rem">1. Vælg emnets størrelse og kompleksitet i tabellen.</p>
+          <p style="color:var(--muted); font-size:1rem">2. Sammenlign dit stykantal med X1 og X2.</p>
+          <p style="color:var(--muted); font-size:1rem">3. Ligger dit emne mellem X1 og X2, er faconætsning typisk den billigste rute.</p>
+        </div>
+        <div style="background:var(--field-red); padding:1.4rem; display:grid; gap:.7rem">
+          <div style="font-family:var(--font-display); font-weight:600; font-size:1.05rem; color:#fff">Ikke helt sikker?</div>
+          <p style="color:var(--accent-ink); font-size:1rem">Send os en tegning, så vurderer vi, hvor dit emne ligger – og hvad det koster i praksis.</p>
+          <a class="button big" style="background:#fff; color:var(--ink); justify-content:center; width:100%" href={base + '/kontakt/'}>Kontakt os</a>
+        </div>
+      </div>
     </div>
     <p style="margin-top:1.4rem; max-width:70ch" class="muted">
       Bemærk, at tallene er vejledende og varierer med den konkrete opgave. Send os en
@@ -102,12 +121,26 @@ const og = costGraph;
   </section>
 
   <section class="section" style="background:var(--surface)">
-    <div class="wrap" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:44ch">
+    <div class="wrap split" style="align-items:center">
+      <div>
         <h2 style="font-size:var(--step-head)">Vil du vide, hvor dit emne ligger?</h2>
-        <p class="muted" style="margin-top:.6rem">Send os en tegning eller en skitse – vi rådgiver dig om den bedste løsning.</p>
+        <p class="muted" style="margin-top:.6rem; margin-bottom:1.4rem">Send os en tegning eller en skitse – vi rådgiver dig om den bedste løsning.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+          <a class="button big" href={base + '/kontakt/'}>Send os en tegning</a>
+          <a class="button big ghost" href="tel:+4527116559">Ring til os</a>
+        </div>
       </div>
-      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={production}
+          alt="Hånd i enganghandske fører et ætset metalark gennem en maskine"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap small">Send os en tegning – vi vurderer, hvor dit emne ligger</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

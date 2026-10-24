@@ -228,7 +228,7 @@ const total = (key: 'old' | 'new') => (price?.rows || []).reduce((a: number, r: 
       </div>
       <div class="panel">
         <h2>{t.staticH}</h2>
-        <ul class="ticks">{t.staticList.map((x) => <li><span class="good">✓</span> {x}</li>)}</ul>
+        <ul class="ticks">{t.staticList.map((x) => <li><span class="good" aria-hidden="true">✓</span> {x}</li> <!-- taste-skill-ignore: checklist marker, not an emoji -->)}</ul>
       </div>
     </section>
 

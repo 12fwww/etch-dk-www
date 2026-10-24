@@ -7,8 +7,8 @@ import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import { Picture } from 'astro:assets';
-import logo from '../assets/original/logo.jpg';
-import logoPng from '../assets/original/logo.png';
+import logoClean from '../assets/original/logo-clean.png';
+
 
 interface Props {
   title: string;
@@ -26,7 +26,6 @@ const nav = [
   { href: base + '/vi-tilbyder/', label: 'Vi tilbyder' },
   { href: base + '/hurtigt-i-gang/', label: 'Hurtigt i gang' },
   { href: base + '/om-etch/', label: 'Om Etch' },
-  { href: base + '/kontakt/', label: 'Kontakt' },
 ];
 
 const production = (import.meta.env.PUBLIC_PRODUCTION_URL || Astro.site?.origin || '').replace(/\/$/, '');
@@ -57,7 +56,7 @@ const canonical = production + path;
 <header class="site-head">
   <div class="wrap head-row">
     <a class="brand" href={base + '/'} aria-label="Etch forside">
-      <Picture src={logo} alt="Etch logo" widths={[160, 240]} format={['avif','webp']} />
+      <Picture src={logoClean} alt="Etch logo" widths={[160, 240, 440, 500, 650]} format={['avif','webp']} />
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav">
@@ -72,13 +71,13 @@ const canonical = production + path;
 <footer class="foot">
   <div class="wrap">
     <div class="grid">
-      <div style="grid-column: span 12; display:flex; flex-direction:column; gap:1.2rem;">
+      <div class="fbrand">
         <a class="brand" href={base + '/'} aria-label="Etch forside">
-          <Picture src={logoPng} alt="Etch logo" widths={[200, 300]} format={['avif','webp']} />
+          <Picture src={logoClean} alt="Etch logo" widths={[200, 300, 440, 500, 650]} format={['avif','webp']} />
         </a>
         <p class="blurb">Etch A/S leverer industrielle løsninger i metallisk tyndplade i seriestørrelser fra prototyper og 0-serier til produktionskvantiteter. Basisprocessen er faconætsning.</p>
       </div>
-      <div class="col" style="grid-column: span 6;">
+      <div class="col prod">
         <h4>Produkter</h4>
         <a href={base + '/vi-tilbyder/bladfjedre/'}>Bladfjedre</a>
         <a href={base + '/vi-tilbyder/shims-og-spacere/'}>Shims og spacere</a>
@@ -86,27 +85,25 @@ const canonical = production + path;
         <a href={base + '/vi-tilbyder/emc-pakninger/'}>EMC pakninger</a>
         <a href={base + '/vi-tilbyder/dekorative-emner/'}>Dekorative emner</a>
       </div>
-      <div class="col" style="grid-column: span 3;">
+      <div class="col firm">
         <h4>Firma</h4>
         <a href={base + '/faconaetsning/'}>Faconætsning</a>
         <a href={base + '/oekonomiske-fordele/'}>Økonomiske fordele</a>
         <a href={base + '/hurtigt-i-gang/'}>Hurtigt i gang</a>
         <a href={base + '/om-etch/'}>Om Etch</a>
       </div>
-      <div class="col" style="grid-column: span 3;">
+      <div class="col kont">
         <h4>Kontakt</h4>
         <a href="tel:+4527116559">+45 27 11 65 59</a>
         <a href="mailto:info@etch.dk">info@etch.dk</a>
         <span>Bygmarken 3, 3520 Farum</span>
-        <span>Åben 08.00–16.00</span>
+        <span class="hours">Åben 08.00–16.00</span>
       </div>
     </div>
     <div class="fine">
-      <span>© {new Date().getFullYear()} Etch A/S · CVR-firma i Farum</span>
-      <span>
-        <a href={base + '/cookies/'}>Cookiespolitik</a> ·
-        <a href={base + '/wp-content/uploads/2022/11/Etch-salgs-og-leveringsbetingelser-2022.pdf'}>Salgs- og leveringsbetingelser</a>
-      </span>
+      <span>© {new Date().getFullYear()} Etch A/S · Bygmarken 3, 3520 Farum</span>
+      <a href={base + '/cookies/'}>Cookiespolitik</a>
+      <a href={base + '/wp-content/uploads/2022/11/Etch-salgs-og-leveringsbetingelser-2022.pdf'}>Salgs- og leveringsbetingelser</a>
     </div>
   </div>
 </footer>

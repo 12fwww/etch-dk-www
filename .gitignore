@@ -1,6 +1,8 @@
 node_modules/
 dist/
+dist-prod/
 .astro/
 .taste-skill/
+serve/
 *.log
 .DS_Store

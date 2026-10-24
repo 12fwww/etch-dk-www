@@ -3,6 +3,7 @@ import { Picture } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { products, breadcrumb, base } from '../../data/site';
 import volume from '../../assets/original/volume.jpg';
+import gaskets from '../../assets/original/gaskets-cans.jpg';
 
 const og = volume;
 const capabilities = [
@@ -32,34 +33,52 @@ const capabilities = [
   ])]}
 >
   <section class="section wrap pagehead">
-    <h1 data-rise style="--i:0">Vi tilbyder</h1>
-    <p class="lead" data-rise style="--i:1; margin-top:1rem">
-      Kort leveringstid – selv større antal. Det er teknisk muligt at levere ætsede emner
-      samme dag, som man modtager en CAD-fil af emnet. Designændringer i løbende produktion kan
-      udføres fra dag til dag.
-    </p>
-  </section>
-
-  <section class="section wrap" style="padding-top:0">
-    <div class="split" data-reveal>
-      <figure class="figure">
+    <div class="split" style="align-items:center">
+      <div>
+        <h1 data-rise style="--i:0">Vi tilbyder</h1>
+        <p class="lead" data-rise style="--i:1; margin-top:1rem">
+          Kort leveringstid – selv større antal. Det er teknisk muligt at levere ætsede emner
+          samme dag, som man modtager en CAD-fil af emnet. Designændringer i løbende produktion kan
+          udføres fra dag til dag.
+        </p>
+      </div>
+      <figure class="figure" data-reveal>
         <Picture
           src={volume}
-          alt="Tæt opstillede identiske cirkulære metaldele med udskårne tænder"
-          widths={[480, 960, 1440, 2048]}
+          class="wide" alt="Tæt opstillede identiske cirkulære metaldele med udskårne tænder"
+          widths={[480, 960, 1440]}
           formats={['avif','webp']}
-          sizes="(min-width:48rem) 50vw, 100vw"
-          aspectRatio="16/9"
+          sizes="(min-width:48rem) 50vw, 92vw"
+         
         />
         <figcaption class="cap">Op til flere tusinde emner på ét ark</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:0">
+    <div class="split">
       <div>
         <h2 style="font-size:var(--step-head)">Hele ark ad gangen</h2>
         <p class="lead" style="margin-top:1rem">
           Processen genererer hele ark ad gangen. Afhængig af, hvor tæt emnerne kan pakkes og
           antallet af ark, kan der hurtigt produceres anselige kvantiteter.
         </p>
+        <p style="margin-top:1rem" class="muted">
+          Fra prototyper og 0-serier til masseproduktion – samme emne, samme kvalitet, uanset stykantal.
+        </p>
       </div>
+      <figure class="figure" data-reveal>
+        <Picture
+          src={gaskets}
+          alt="Gullige cylindriske metaldele med tandet kant, fotograferet på hvid baggrund"
+          widths={[480, 960]}
+          formats={['avif','webp']}
+          sizes="(min-width:48rem) 46vw, 92vw"
+         
+        />
+        <figcaption class="cap">Ætset serie på ark</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -72,28 +91,47 @@ const capabilities = [
 
   <section class="section" style="background:var(--surface)">
     <div class="wrap">
-      <h2 style="margin-bottom:1.6rem">Se alle produkter</h2>
+      <h2 data-rise style="--i:0; margin-bottom:1.6rem">Se alle produkter</h2>
       <div class="catalogue">
         {products.map((p, i) => (
-          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style="--i:" + (i % 3) + ">
+          <a class="specimen" href={base + '/vi-tilbyder/' + p.slug + '/'} data-rise style={`--i:${i % 3}`}>
             <div class={"tile " + p.field}>
-              <Picture src={p.image} alt={p.name} widths={[360, 640]} formats={['avif','webp']} sizes="(min-width:48rem) 30vw, 50vw" />
+              <Picture src={p.image} alt={p.name} widths={[480, 960, 1500]} formats={["avif","webp"]} sizes="(min-width:64rem) 30vw, (min-width:48rem) 45vw, 92vw" />
             </div>
             <p class="name">{p.name}</p>
             <p class="fact">{p.fact}</p>
           </a>
         ))}
+        <a class="specimen cta" href={base + '/kontakt/'} data-rise style="--i:0">
+          <div class="tile field-red cta-tile">
+            <span class="cta-arrow">→</span>
+          </div>
+          <p class="name">Har du et emne?</p>
+          <p class="fact">Send os en CAD-fil – vi svarer med en pris og en leveringstid.</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section wrap">
-    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem">
-      <div style="max-width:46ch">
-        <h2 style="font-size:var(--step-head)">Få en uforpligtende snak</h2>
-        <p class="muted" style="margin-top:.6rem">Kontakt os på tlf. 27 11 65 59 og hør, hvilke løsninger vi kan tilbyde.</p>
+  <section class="section" style="background:var(--field-red); color:var(--accent-ink)">
+    <div class="wrap">
+      <div class="split" style="align-items:center">
+        <div style="max-width:40rem">
+          <h2 style="color:#fff; margin-bottom:.6rem">Få en uforpligtende snak</h2>
+          <p style="color:var(--accent-ink); margin-bottom:1.6rem; max-width:52ch">Send os en CAD-fil eller en skitse, så finder vi sammen den bedste løsning for netop dit emne – og du får en uforpligtende snak om pris og leveringstid.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+            <a class="button big" style="background:#fff; color:var(--ink)" href={base + '/kontakt/'}>Kontakt os</a>
+            <a class="button big ghost" href="tel:+4527116559">Ring til os</a>
+          </div>
+        </div>
+        <div style="display:grid; gap:.7rem; align-self:start; background:rgba(0,0,0,.18); padding:1.4rem">
+          <div style="font-family:var(--font-display); font-weight:600; color:#fff">Etch A/S</div>
+          <a href="tel:+4527116559" style="color:#fff; white-space:nowrap">+45 27 11 65 59</a>
+          <a href="mailto:info@etch.dk" style="color:#fff">info@etch.dk</a>
+          <span>Bygmarken 3, 3520 Farum</span>
+          <span style="white-space:nowrap">Åben 08.00–16.00 (man–fre)</span>
+        </div>
       </div>
-      <a class="button big" href={base + '/kontakt/'}>Kontakt os</a>
     </div>
   </section>
 </Layout>
